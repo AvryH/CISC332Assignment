@@ -1,1 +1,10 @@
+Assumptions:
 
+A "Rental" in reference to functional requirements
+such as:
+- "browse their past rentals"
+- "for a particular customer, show their rental 
+history (including current tickets held)"
+
+Is assumed to be synonymous with a showing that 
+the customer has attended/bought tickets for
