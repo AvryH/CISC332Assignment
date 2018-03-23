@@ -39,6 +39,7 @@
 		} else {
 			// Display some error
 			echo("Error creating account");
+			print_r($db->errorInfo());
 			exit(1);
 		}
 	} else {
