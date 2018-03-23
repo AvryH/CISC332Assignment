@@ -12,13 +12,14 @@
 	if($_SERVER["REQUEST_METHOD"] === "POST") {
 		if($_POST["action"] === "login") {
 			// Load the hashed password from the database
-			$acctNumber = $_POST["acctNumber"];
-			$stmt = $db->prepare("SELECT password FROM `customer` WHERE acctNum=?");
-			$stmt->execute([$acctNumber]);
-			$hash = $stmt->fetchColumn();
+			$email = $_POST["email"];
+			$stmt = $db->prepare("SELECT password, acctNum FROM `customer` WHERE email=?");
+			$stmt->execute([$email]);
+			$user = $stmt->fetch(PDO::FETCH_ASSOC);
+			$acctNumber = $user["acctNum"];
 
 			if($hash !== false) {
-				if(password_verify($_POST["password"], $hash)) {
+				if(password_verify($_POST["password"], $user["password"])) {
 					// The password was correct
 					$_SESSION["acctNumber"] = $acctNumber;
 				} else {
@@ -94,7 +95,7 @@
 ?>
 		<form method="POST">
 			<input name="action" type="hidden" value="login"></input>
-			<input name="acctNumber" type="text" placeholder="user id"></input>
+			<input name="email" type="text" placeholder="email"></input>
 			<input name="password" type="password" placeholder="password"></input>
 			<input type="submit" value="Login"></input>
 		</form>
