@@ -15,7 +15,7 @@
 		// Try to add the user
 		$query = $db->prepare("INSERT INTO customer (acctNum, fName, lName, phoneNum, street, city, pc, email, CCNum, CCExp, password, administrator) VALUES (:acctNum, :fName, :lName, :phoneNum, :street, :city, :pc, :email, :CCNum, :CCExp, :password, :administrator);");
 
-		$acctNumber = random_int(0, pow(2,32)-1);
+		$acctNumber = random_int(0, 1>>31);
 
 		$query->bindValue(":acctNum", $acctNumber);
 		$query->bindValue(":fName", $_POST["fName"]);
@@ -49,6 +49,7 @@
 	<head>
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" href="styling.css"/>
+		<script src=”javaScript.js”></script>
 	</head>
 	<body>
 		<h1>Sign Up:</h1>
@@ -73,9 +74,9 @@
 			<p>Credit Card Expiry Date:<p>
 			<input name="CCExp" type="month" placeholder="CCExp"></input><br>
 			<p>Password:<p>
-			<input name="password" type="password" placeholder="password" required></input><br>
+			<input name="password" type="password" placeholder="password" required onkeyup='check();'></input><br>
 			<p>Confirm Password:<p>
-			<input name="password" type="password" placeholder="password" required></input><br>
+			<input name="confirm_password" type="password" placeholder="confirm_password" required onkeyup='check();'></input><br>
 			<input type="submit" value="Sign Up"></input><br>
 		</form>
 	</body>
