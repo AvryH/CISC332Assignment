@@ -16,6 +16,7 @@
 			$stmt = $db->prepare("SELECT password, acctNum FROM `customer` WHERE email=?");
 			$stmt->execute([$email]);
 			$user = $stmt->fetch(PDO::FETCH_ASSOC);
+			$hash = $user["password"];
 			$acctNumber = $user["acctNum"];
 
 			if($hash !== false) {
