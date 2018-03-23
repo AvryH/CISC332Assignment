@@ -74,7 +74,8 @@
 			<p>Password:<p>
 			<input name="password" type="password" placeholder="password" required onkeyup='check();'></input><br>
 			<p>Confirm Password:<p>
-			<input name="confirm_password" type="password" placeholder="confirm_password" required onkeyup='check();'></input><br><br>
+			<input name="confirm_password" type="password" placeholder="confirm_password" required onkeyup='check();'></input>
+			<span id='areMatching'></span><br><br>
 			<input type="submit" value="Sign Up"></input><br>
 		</form>
 	</body>
