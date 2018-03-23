@@ -5,8 +5,10 @@
 var arePWtheSame = function()
 	if (document.getElementById('password').value ==
     document.getElementById('confirm_password').value){
-        document.getElementById('submit').disabled = false;
+        document.getElementById('areMatching').style.color = 'green';
+		document.getElementById('areMatching').innerHTML = 'Passwords Match';
     } 
 	else {
-        document.getElementById('submit').disabled = true;
+		document.getElementById('areMatching').style.color = 'red';
+		document.getElementById('areMatching').innerHTML = 'Passwords Do Not Match';
     }
