@@ -56,18 +56,15 @@
 		<h1>Sign Up:</h1>
 
 		<form method="POST">
-			<p>First name:<p>
-			<input name="fName" type="text" placeholder="fName" required></input><br>
-			<p>Last name: <p>
-			<input name="lName" type="text" placeholder="lName" required></input><br>
+			<p>Name:<p>
+			<input name="fName" type="text" placeholder="First Name" required></input><br>
+			<input name="lName" type="text" placeholder="Last Name" required></input><br>
 			<p>Phone Number:<p>
 			<input name="phoneNum" type="tel" placeholder="phoneNum" required></input><br>
-			<p>Street Address:<p>
-			<input name="street" type="text" placeholder="street" required></input><br>
-			<p>City:<p>
-			<input name="city" type="text" placeholder="city" required></input><br>
-			<p>Postal Code:<p>
-			<input name="pc" type="text" placeholder="pc" required></input><br>
+			<p>Address:<p>
+			<input name="street" type="text" placeholder="Street Address" required></input><br>
+			<input name="city" type="text" placeholder="City" required></input><br>
+			<input name="pc" type="text" placeholder="Postal Code" required></input><br>
 			<p>Email:<p>
 			<input name="email" type="email" placeholder="email" required></input><br>
 			<p>Credit Card Number:<p>
@@ -77,7 +74,7 @@
 			<p>Password:<p>
 			<input name="password" type="password" placeholder="password" required onkeyup='check();'></input><br>
 			<p>Confirm Password:<p>
-			<input name="confirm_password" type="password" placeholder="confirm_password" required onkeyup='check();'></input><br>
+			<input name="confirm_password" type="password" placeholder="confirm_password" required onkeyup='check();'></input><br><br>
 			<input type="submit" value="Sign Up"></input><br>
 		</form>
 	</body>
