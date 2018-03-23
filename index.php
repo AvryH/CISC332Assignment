@@ -16,6 +16,7 @@
 	</head>
 	<body>
 		<a href="signIn.php">Sign In</a>
+		<a href="signUp.php">Sign Up</a>
 <?PHP
 	foreach($movies as $movie) {
 ?>

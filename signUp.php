@@ -45,22 +45,37 @@
 		// Show the normal page
 ?>
 <html>
+	<!-- This is the sign in page -->
 	<head>
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" href="styling.css"/>
 	</head>
 	<body>
+		<h1>Sign Up:</h1>
+
 		<form method="POST">
-			<input name="fName" type="text" placeholder="fName"></input><br>
-			<input name="lName" type="text" placeholder="lName"></input><br>
-			<input name="phoneNum" type="text" placeholder="phoneNum"></input><br>
-			<input name="street" type="text" placeholder="street"></input><br>
-			<input name="city" type="text" placeholder="city"></input><br>
-			<input name="pc" type="text" placeholder="pc"></input><br>
-			<input name="email" type="text" placeholder="email"></input><br>
+			<p>First name:<p>
+			<input name="fName" type="text" placeholder="fName" required></input><br>
+			<p>Last name: <p>
+			<input name="lName" type="text" placeholder="lName" required></input><br>
+			<p>Phone Number:<p>
+			<input name="phoneNum" type="tel" placeholder="phoneNum" required></input><br>
+			<p>Street Address:<p>
+			<input name="street" type="text" placeholder="street" required></input><br>
+			<p>City:<p>
+			<input name="city" type="text" placeholder="city" required></input><br>
+			<p>Postal Code:<p>
+			<input name="pc" type="text" placeholder="pc" required></input><br>
+			<p>Email:<p>
+			<input name="email" type="email" placeholder="email" required></input><br>
+			<p>Credit Card Number:<p>
 			<input name="CCNum" type="text" placeholder="CCNum"></input><br>
-			<input name="CCExp" type="text" placeholder="CCExp"></input><br>
-			<input name="password" type="text" placeholder="password"></input><br>
+			<p>Credit Card Expiry Date:<p>
+			<input name="CCExp" type="month" placeholder="CCExp"></input><br>
+			<p>Password:<p>
+			<input name="password" type="password" placeholder="password" required></input><br>
+			<p>Confirm Password:<p>
+			<input name="password" type="password" placeholder="password" required></input><br>
 			<input type="submit" value="Sign Up"></input><br>
 		</form>
 	</body>
@@ -68,50 +83,3 @@
 <?PHP
 	}
 ?>
-
-<html>
-<!-- This is the sign in page -->	
-
-<body>
-
-	<h1>Sign Up!</h1>
-
-	<form>
-		<p>First name:<p>
-		<input type="text" name="firstname" required>
-		<br>     
-		<p>Last name: <p>
-		<input type="text" name="lastname" required>
-		<br>
-		<p>Phone Number:<p>
-		<input type="tel" name="phoneNum" required>
-		<br>
-		<p>Street Address:<p>
-		<input type="text" name="street" required>
-		<br>
-		<p>City:<p>
-		<input type="text" name="city" required>
-		<br>
-		<p>Postal Code:<p>
-		<input type="text" name="pc" required>
-		<br>
-		<p>Email:<p>
-		<input type="email" name="email" required>
-		<br>
-		<p>Credit Card Number:<p>
-		<input type="number" name="CCNum">
-		<br>
-		<p>Credit Card Expiry Date:<p>
-		<input type="month" name="CCExp">
-		<br>
-		<p>Password:<p>
-		<input type="password" name="password" required>
-		<br>
-		<p>Confirm Password:<p>
-		<input type="password" name="conPassword" required>
-		<br><br>
-		<input type="submit">
-	</form>
-</body>
-
-</html>
