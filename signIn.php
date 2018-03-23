@@ -27,7 +27,7 @@
 					exit();
 				}
 			} else {
-				echo("No user with that id was found");
+				echo("No user with that email was found");
 				exit();
 			}
 		} else if($_POST["action"] === "logout") {
