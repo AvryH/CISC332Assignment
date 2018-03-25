@@ -1,0 +1,368 @@
+-- phpMyAdmin SQL Dump
+-- version 4.7.9
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: Mar 25, 2018 at 09:50 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `project`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `complex`
+--
+
+CREATE TABLE `complex` (
+  `name` varchar(100) NOT NULL,
+  `numTheaters` int(11) DEFAULT NULL,
+  `street` varchar(100) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `pc` char(6) NOT NULL,
+  `phoneNum` char(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `complex`
+--
+
+INSERT INTO `complex` (`name`, `numTheaters`, `street`, `city`, `pc`, `phoneNum`) VALUES
+('Kingston AMC Theater', 3, 'Princess Street', 'Kingston', 'K7L1B2', '6135552020'),
+('Kingston Cineplex', 2, 'Princess Street', 'Kingston', 'K7L1B2', '6135551010'),
+('The Kingston Grand Theater', 4, 'Princess Street', 'Kingston', 'K7L1B2', '6135302050');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer`
+--
+
+CREATE TABLE `customer` (
+  `acctNum` int(11) NOT NULL,
+  `fName` varchar(50) DEFAULT NULL,
+  `lName` varchar(50) DEFAULT NULL,
+  `phoneNum` char(10) DEFAULT NULL,
+  `street` varchar(100) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `pc` char(6) NOT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `CCNum` char(16) DEFAULT NULL,
+  `CCExp` char(4) DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `administrator` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`acctNum`, `fName`, `lName`, `phoneNum`, `street`, `city`, `pc`, `email`, `CCNum`, `CCExp`, `password`, `administrator`) VALUES
+(213142, 'Admin', 'Istrator', '9999999999', '123 Street St', 'Home Town', 'H0N507', 'root', 'root', '1234', '$2y$10$ehzAeELmEwn9HsrOX7out.mHeRYJwwyeHSodnV8Y7S3.n8zRifGdK', 1),
+(10189321, 'Avry', 'Harris', '6135551234', '99 University Ave', 'Kingston', 'K7L3P5', 'avry29@gmail.com', '1234567891011121', '0119', '$2y$10$68WOtEXjkG64ju6SimrwheNGVe8p5E0IC9phNNqIVgnd1F1TzXeQi', 0),
+(15528057, 'Harry', 'Potter', NULL, 'Hogwarts', 'England', 'H0C1SP', 'usemyowl@owl.wiz', NULL, NULL, '$2y$10$7oVdvRsT8V0ifsrRxH9ITeb7lmd5nZLmIxyVllbRROiWw2o4H805O', 0),
+(15661148, 'Billy', 'Bob', '8675309122', 'Delta Road', 'Kingston', 'K7L2R3', 'billybillybilly@billy.billy', '3333333333333333', '0317', '$2y$10$ynAHfaTpSFOA6X2Dhi6kV.BOCzw6dGEREgxUW.Aray71nccPqn2su', 0),
+(19912165, 'Harold', 'Martin', '3939394959', 'Foxtrot Road', 'Kingston', 'K7L3P9', 'h.martin@gmail.com', '6868686868686868', '0722', '$2y$10$GGvkMhxWmKS9Uo3GUX40we9vizRX8lW1Ap.oRitrkycbzQi9TM8jy', 0),
+(23456789, 'Edward', 'Luetchford', '2893565551', 'Beta Road', 'Bowmanville', 'L1C2R8', 'eddie123@gmail.com', '1231231231231231', '0421', '$2y$10$5eg36LaHulTnYL86vYWFjO//xxt5k..MTcYmUOr1SzbXsqroVQCza', 0),
+(36177382, 'James', 'Cornwell', '1122233334', 'Echo Road', 'Kingston', 'k7L8R5', 'jamesMaxCorn@hotmail.com', '4545454545454545', '0635', '$2y$10$P8Ci7Fuw1RFRE8e.4dIa2Ovm551CddF.fAc0upWcsWK6lGWlWDh7e', 0),
+(52794068, 'Nick', 'Cage', '4949494949', 'Charlie Road', 'Kingston', 'k7L5B4', 'feelthecagerage@hotmail.com', '9999999999999999', '0209', '$2y$10$y1SzyGUKY1VvQbqSBWIz8en6.7olFzXOJB5ofpWjNSJUhaPypziAK', 0),
+(58029388, 'Gilbert', 'Marx', '4444445355', 'Golf Road', 'Kingston', 'K7L1E4', 'ggggilbert123@gmail.com', '7373737373737474', '0719', '$2y$10$Hz30tBVRd8CTmzWPi746quUzXnFJLfL7dh/IzVrT.BKG7pb1qnJ/e', 0),
+(87654321, 'Jane', 'Smith', '1234567890', 'Alpha Road', 'Kingston', 'K7L1E5', 'janeSmith@gmail.com', '1212121212121212', '0119', '$2y$10$o2kVnqVpeawTKjT4bot/eOI1w.30TJMwOXAlvUdtZOcChotMSpk4e', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mainactors`
+--
+
+CREATE TABLE `mainactors` (
+  `FName` varchar(50) DEFAULT NULL,
+  `LName` varchar(50) DEFAULT NULL,
+  `MovieTitle` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mainactors`
+--
+
+INSERT INTO `mainactors` (`FName`, `LName`, `MovieTitle`) VALUES
+('Nick', 'Cage', 'National Treasure: Book of Secrets'),
+('Sean', 'Connery', 'The Rock');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `movie`
+--
+
+CREATE TABLE `movie` (
+  `title` varchar(50) NOT NULL,
+  `runtime` int(11) NOT NULL,
+  `rating` varchar(3) DEFAULT NULL,
+  `plotSyn` varchar(200) DEFAULT NULL,
+  `director` varchar(100) DEFAULT NULL,
+  `mainActors` varchar(1000) DEFAULT NULL,
+  `prodComp` varchar(100) DEFAULT NULL,
+  `startDate` date NOT NULL,
+  `endDate` date NOT NULL,
+  `genre` varchar(50) DEFAULT NULL,
+  `supplier` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `movie`
+--
+
+INSERT INTO `movie` (`title`, `runtime`, `rating`, `plotSyn`, `director`, `mainActors`, `prodComp`, `startDate`, `endDate`, `genre`, `supplier`) VALUES
+('Face/Off', 148, '73', 'In order to foil an extortion plot, an FBI agent undergoes a facial transplant surgery and assumes the identity and physical appearance of a terrorist, but the plan turns from bad to worse.', 'John Woo', 'John Travolta, Nicolas Cage, Joan Allen', 'Sony Pictures', '2018-03-01', '2018-04-20', 'Action', NULL),
+('Ghost Rider', 114, '52', 'Stunt motorcyclist Johnny Blaze gives up his soul to become a hellblazing vigilante, to fight against power hungry Blackheart, the son of the devil.', 'Mark Steven Johnson', 'Nicolas Cage, Eva Mendes', 'Sam Elliott', '2018-03-04', '2018-05-15', 'Action', 'Action'),
+('Left Behind', 110, '31', 'A small group of survivors are left behind after millions of people suddenly vanish and the world is plunged into chaos and destruction.', 'Vic Armstrong', 'Nicolas Cage, Lea Thompson, Cassi Thompson', 'Stoney Lake Entertainment', '2018-02-28', '2018-04-18', 'Drama', 'Reel to Reel'),
+('Matchstick Men', 116, '73', 'A phobic con artist and his protégé are on the verge of pulling off a lucrative swindle when the former\'s teenage daughter arrives unexpectedly.', 'Ridley Scott', 'Nicolas Cage, Alison Lohman, Sam Rockwell', 'Warner Bros.', '2018-03-02', '2018-05-11', 'Comedy', 'Cinema Supplies'),
+('National Treasure: Book of Secrets', 124, '65', 'Benjamin Gates must follow a clue left in John Wilkes Booth\'s diary to prove his ancestor\'s innocence in the assassination of Abraham Lincoln.', 'Jon Turteltaub', 'Nicholas Cage, Diane Kruger, Justin Bartha', 'Walt Disney Pictures', '2018-02-25', '2018-04-25', 'Action', 'Action'),
+('Next', 93, '62', 'A Las Vegas magician who can see into the future is pursued by FBI agents seeking to use his abilities to prevent a nuclear terrorist attack.', 'Lee Tamahori', 'Nicolas Cage, Juliane Moore, Jessica Biel', 'Paramount Pictures', '2018-03-02', '2018-05-01', 'Action', 'Reel to Reel'),
+('The Rock', 136, '74', 'A mild-mannered chemist and an ex-con must lead the counterstrike when a rogue group of military men, led by a renegade general, threaten a nerve gas attack from Alcatraz against San Francisco.', 'Michael Bay', 'Sean Connery, Nicolas Cage, Ed Harris', 'Hollywood Pictures', '2018-02-13', '2018-03-25', 'Action', 'Cinema Supplies'),
+('The Weather Man', 102, '66', 'A Chicago weather man, separated from his wife and children, debates whether professional and personal success are mutually exclusive.', 'Gore Verbinski', 'Nicolas Cage, Hope Davis, Nicholas Hoult', 'Paramount Pictures', '2018-03-04', '2018-05-10', 'Comedy', 'Action');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reservation`
+--
+
+CREATE TABLE `reservation` (
+  `accountNum` int(11) NOT NULL,
+  `showingID` int(11) NOT NULL,
+  `numTicketsReserved` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `showing`
+--
+
+CREATE TABLE `showing` (
+  `showingID` int(11) NOT NULL,
+  `movieTitle` varchar(50) NOT NULL,
+  `complexName` varchar(100) NOT NULL,
+  `theaterNum` int(11) NOT NULL,
+  `startTime` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `showing`
+--
+
+INSERT INTO `showing` (`showingID`, `movieTitle`, `complexName`, `theaterNum`, `startTime`) VALUES
+(1, 'Face/Off', 'The Kingston Grand Theater', 2, '2018-03-28 10:30:00'),
+(2, 'Ghost Rider', 'The Kingston Grand Theater', 2, '2018-03-28 12:30:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `supplier`
+--
+
+CREATE TABLE `supplier` (
+  `companyName` varchar(100) NOT NULL,
+  `street` varchar(100) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `pc` char(6) NOT NULL,
+  `phoneNum` char(10) NOT NULL,
+  `fName` varchar(50) DEFAULT NULL,
+  `lName` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `supplier`
+--
+
+INSERT INTO `supplier` (`companyName`, `street`, `city`, `pc`, `phoneNum`, `fName`, `lName`) VALUES
+('Action', '123 Alfred Street', 'Kingston', 'K7K5H8', '6132267435', 'Robert', 'Williams'),
+('Cinema Supplies', '333 Bay Street', 'Toronto', 'M5A1N1', '4168651833', 'Amy', 'Brookes'),
+('Reel to Reel', '873 York Street', 'Toronto', 'M5H2R0', '6477502054', 'Tim', 'Smith');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `theater`
+--
+
+CREATE TABLE `theater` (
+  `complexName` varchar(100) NOT NULL,
+  `theaterNum` int(11) NOT NULL,
+  `maxNumOfSeat` int(11) NOT NULL,
+  `screenSize` char(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `theater`
+--
+
+INSERT INTO `theater` (`complexName`, `theaterNum`, `maxNumOfSeat`, `screenSize`) VALUES
+('Kingston AMC Theater', 1, 200, 'M'),
+('Kingston AMC Theater', 2, 100, 's'),
+('Kingston Cineplex', 1, 200, 'M'),
+('Kingston Cineplex', 2, 300, 'L'),
+('Kingston Cineplex', 3, 250, 'M'),
+('Kingston Cineplex', 4, 400, 'L'),
+('The Kingston Grand Theater', 1, 50, 'S'),
+('The Kingston Grand Theater', 2, 300, 'M');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `watched`
+--
+
+CREATE TABLE `watched` (
+  `acctNum` int(11) NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `customerRating` int(11) DEFAULT NULL,
+  `customerReview` varchar(300) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `watched`
+--
+
+INSERT INTO `watched` (`acctNum`, `title`, `customerRating`, `customerReview`) VALUES
+(213142, 'Face/Off', 3, 'Truly one of the movies I\'ve seen this year.'),
+(213142, 'The Rock', 5, 'I liked the part with rocks in it.'),
+(10189321, 'The Rock', 5, 'The acting by Sean Connery is simply the best acting ever.');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `complex`
+--
+ALTER TABLE `complex`
+  ADD PRIMARY KEY (`name`);
+
+--
+-- Indexes for table `customer`
+--
+ALTER TABLE `customer`
+  ADD PRIMARY KEY (`acctNum`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Indexes for table `mainactors`
+--
+ALTER TABLE `mainactors`
+  ADD PRIMARY KEY (`MovieTitle`);
+
+--
+-- Indexes for table `movie`
+--
+ALTER TABLE `movie`
+  ADD PRIMARY KEY (`title`),
+  ADD KEY `supplier` (`supplier`);
+
+--
+-- Indexes for table `reservation`
+--
+ALTER TABLE `reservation`
+  ADD PRIMARY KEY (`accountNum`,`showingID`),
+  ADD KEY `showingID` (`showingID`);
+
+--
+-- Indexes for table `showing`
+--
+ALTER TABLE `showing`
+  ADD PRIMARY KEY (`showingID`),
+  ADD KEY `complexName` (`complexName`,`theaterNum`),
+  ADD KEY `movieTitle` (`movieTitle`);
+
+--
+-- Indexes for table `supplier`
+--
+ALTER TABLE `supplier`
+  ADD PRIMARY KEY (`companyName`);
+
+--
+-- Indexes for table `theater`
+--
+ALTER TABLE `theater`
+  ADD PRIMARY KEY (`complexName`,`theaterNum`);
+
+--
+-- Indexes for table `watched`
+--
+ALTER TABLE `watched`
+  ADD PRIMARY KEY (`acctNum`,`title`),
+  ADD KEY `title` (`title`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `showing`
+--
+ALTER TABLE `showing`
+  MODIFY `showingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `mainactors`
+--
+ALTER TABLE `mainactors`
+  ADD CONSTRAINT `mainactors_ibfk_1` FOREIGN KEY (`MovieTitle`) REFERENCES `movie` (`title`);
+
+--
+-- Constraints for table `movie`
+--
+ALTER TABLE `movie`
+  ADD CONSTRAINT `movie_ibfk_1` FOREIGN KEY (`supplier`) REFERENCES `supplier` (`companyName`);
+
+--
+-- Constraints for table `reservation`
+--
+ALTER TABLE `reservation`
+  ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`accountNum`) REFERENCES `customer` (`acctNum`),
+  ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`showingID`) REFERENCES `showing` (`showingID`);
+
+--
+-- Constraints for table `showing`
+--
+ALTER TABLE `showing`
+  ADD CONSTRAINT `showing_ibfk_1` FOREIGN KEY (`complexName`,`theaterNum`) REFERENCES `theater` (`complexName`, `theaterNum`),
+  ADD CONSTRAINT `showing_ibfk_2` FOREIGN KEY (`movieTitle`) REFERENCES `movie` (`title`);
+
+--
+-- Constraints for table `theater`
+--
+ALTER TABLE `theater`
+  ADD CONSTRAINT `theater_ibfk_1` FOREIGN KEY (`complexName`) REFERENCES `complex` (`name`);
+
+--
+-- Constraints for table `watched`
+--
+ALTER TABLE `watched`
+  ADD CONSTRAINT `watched_ibfk_1` FOREIGN KEY (`title`) REFERENCES `movie` (`title`),
+  ADD CONSTRAINT `watched_ibfk_2` FOREIGN KEY (`acctNum`) REFERENCES `customer` (`acctNum`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

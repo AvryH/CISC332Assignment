@@ -20,10 +20,10 @@
 	$query->execute([$_REQUEST["title"]]);
 	$movie = $query->fetch(PDO::FETCH_ASSOC);
 
-	// Load the list of presentations from the database
-	$query = $db->prepare("SELECT complexName, theaterNum, startTime FROM `presentation` JOIN `movie` ON title=movieTitle NATURAL JOIN `showing` WHERE title=?");
+	// Load the list of showings from the database
+	$query = $db->prepare("SELECT complexName, theaterNum, startTime FROM `showing` WHERE movieTitle=?");
 	$query->execute([$_REQUEST["title"]]);
-	$presentations = $query->fetchAll(PDO::FETCH_ASSOC);
+	$showings = $query->fetchAll(PDO::FETCH_ASSOC);
 
 	// Load all reviews
 	$query = $db->prepare("SELECT customerRating, customerReview FROM `watched` WHERE title=?");
@@ -36,10 +36,10 @@ Movie:<br>
 	print_r($movie);
 ?>
 
-<br><br>Presentations:<br>
+<br><br>Showings:<br>
 <?PHP
-	foreach($presentations as $pres) {
-		print_r($pres);
+	foreach($showings as $show) {
+		print_r($show);
 		echo("<br>");
 	}
 ?>
