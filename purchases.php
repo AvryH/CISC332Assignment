@@ -26,6 +26,7 @@
 		<link rel="stylesheet" href="styling.css"/>
 	</head>
 	<body>
+		<a href=".">Back to main site</a><br/><br/>
 		<table>
 			<tr><th>Movie</th><th>Theater</th><th>Time</th><th>Number of Seats</th><th>Action</th></tr>
 <?PHP
