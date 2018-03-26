@@ -18,20 +18,20 @@ require_once(__dir__ . "/ensure_admin.php");
 			<tr><th>Rank</th><th>Most popular movies</th><th>Most popular complexes</th></tr>
 			<?PHP
 				// Load the most popular movies from the database
-				$query = $db->prepare("SELECT movieTitle FROM `reservation` NATURAL JOIN `showing` GROUP BY movieTitle ORDER BY COUNT(*) LIMIT 10");
+				$query = $db->prepare("SELECT movieTitle FROM `reservation` NATURAL JOIN `showing` GROUP BY movieTitle ORDER BY SUM(numTicketsReserved) LIMIT 10");
 				$query->execute();
 				$movies = $query->fetchAll(PDO::FETCH_ASSOC);
 
 				// Load the most popular complexes from the database
-				$query = $db->prepare("SELECT complexName FROM `reservation` NATURAL JOIN `showing` GROUP BY complexName ORDER BY COUNT(*) LIMIT 10");
+				$query = $db->prepare("SELECT complexName FROM `reservation` NATURAL JOIN `showing` GROUP BY complexName ORDER BY SUM(numTicketsReserved) LIMIT 10");
 				$query->execute();
-				$movies = $query->fetchAll(PDO::FETCH_ASSOC);
+				$complexes = $query->fetchAll(PDO::FETCH_ASSOC);
 
 				for($index=0; $index<10; $index++) {
 					if(!isset($movies[$index]) && !isset($movies[$index])) {
 						break;
 					}
-					echo("<tr><td>#" . ($index + 1) . "</td><td>" . $movies[$index] . "</td><td>" . $complexes[$index] . "</td></tr>");
+					echo("<tr><td>#" . ($index + 1) . "</td><td>" . $movies[$index]["movieTitle"] . "</td><td>" . $complexes[$index]["complexName"] . "</td></tr>");
 				}
 			?>
 		</table>
