@@ -18,14 +18,16 @@
 	font-weight: bold;
 	text-align: center;
 	border-bottom: 1px solid grey;
-	padding-left: 1em;
-	padding-right: 1em;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
 }
 
 .td, td {
 	display: table-cell;
 	white-space: nowrap;
 	border-left: 1px solid grey;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
 }
 
 .td:last-child, td:last-child {

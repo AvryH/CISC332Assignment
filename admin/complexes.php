@@ -39,7 +39,7 @@
 	</head>
 	<body>
 		<a href=".">Back to admin panel</a><br/><br/>
-		<table>
+		<div class="table">
 <?PHP
 	$spec = ["name", "numTheaters", "street", "city", "pc", "phoneNum"];
 	$primary = ["name"];
@@ -49,12 +49,12 @@
 	// Load all complexes
 	$query = $db->prepare("SELECT * FROM `complex`");
 	$query->execute();
-	$members = $query->fetchAll(PDO::FETCH_ASSOC);
+	$complexes = $query->fetchAll(PDO::FETCH_ASSOC);
 
-	foreach($members as $member) {
-		echoUpdate($spec, $primary, $member);
+	foreach($complexes as $complex) {
+		echoUpdate($spec, $primary, $complex);
 	}
 ?>
-		</table>
+		</div>
 	</body>
 </html>

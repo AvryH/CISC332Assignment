@@ -24,6 +24,9 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
 				<th>First Name</th>
 				<th>Last Name</th>
 				<th>email</th>
+				<th>Role</th>
+				<th>Information</th>
+				<th>Actions</th>
 			</tr>
 			<?PHP
 				// Load all members from the database

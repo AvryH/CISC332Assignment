@@ -30,7 +30,7 @@
 			<tr><th>Movie</th><th>Theater</th><th>Time</th><th>Number of Seats</th><th>Action</th></tr>
 <?PHP
 	// Load purchases from the database
-	$query = $db->prepare("SELECT showingID, numTicketsReserved, movieTitle, complexName, theaterNum, startTime FROM `reservation` NATURAL JOIN `showing` WHERE accountNum=?");
+	$query = $db->prepare("SELECT showingID, numTicketsReserved, movieTitle, complexName, theaterNum, startTime FROM `reservation` NATURAL JOIN `showing` WHERE accountNum=? ORDER BY startTime");
 	$query->execute([$_SESSION["acctNumber"]]);
 	$purchases = $query->fetchAll(PDO::FETCH_ASSOC);
 	

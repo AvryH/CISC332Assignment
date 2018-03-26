@@ -32,7 +32,15 @@ require_once(__dir__ . "/ensure_admin.php");
 					if(!isset($movies[$index]) && !isset($movies[$index])) {
 						break;
 					}
-					echo("<tr><td>#" . ($index + 1) . "</td><td>" . $movies[$index]["movieTitle"] . "</td><td>" . $complexes[$index]["complexName"] . "</td></tr>");
+					echo("<tr><td>#" . ($index + 1) . "</td><td>");
+					if(isset($movies[$index])) {
+						echo(htmlspecialchars($movies[$index]["movieTitle"]));
+					}
+					echo("</td><td>");
+					if(isset($complexes[$index])) {
+						echo(htmlspecialchars($complexes[$index]["complexName"]));
+					}
+					echo("</td></tr>");
 				}
 			?>
 		</table>

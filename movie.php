@@ -42,7 +42,7 @@ Movie:<br>
 	foreach($showings as $show) {
 		echo('<a href="showing.php?id=' . htmlspecialchars(urlencode($show["showingID"])) . '">');
 		echo(htmlspecialchars($show["startTime"]) . ' ' . htmlspecialchars($show["complexName"]) . ' #' . htmlspecialchars($show["theaterNum"]));
-		echo('</a>');
+		echo('</a><br/>');
 	}
 ?>
 </div>
