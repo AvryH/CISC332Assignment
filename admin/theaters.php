@@ -36,7 +36,7 @@
 		<link rel="stylesheet" href="style.css"/>
 	</head>
 	<body>
-		<a href=".">Back to admin panel</a>
+		<a href=".">Back to admin panel</a><br/><br/>
 		<div class="table">
 <?PHP
 	$spec = ["complexName", "theaterNum", "maxNumOfSeat", "screenSize"];

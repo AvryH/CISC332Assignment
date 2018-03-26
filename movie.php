@@ -21,7 +21,7 @@
 	$movie = $query->fetch(PDO::FETCH_ASSOC);
 
 	// Load the list of showings from the database
-	$query = $db->prepare("SELECT complexName, theaterNum, startTime FROM `showing` WHERE movieTitle=?");
+	$query = $db->prepare("SELECT showingID, complexName, theaterNum, startTime FROM `showing` WHERE movieTitle=?");
 	$query->execute([$_REQUEST["title"]]);
 	$showings = $query->fetchAll(PDO::FETCH_ASSOC);
 
@@ -37,12 +37,15 @@ Movie:<br>
 ?>
 
 <br><br>Showings:<br>
+<div class="movie_showings">
 <?PHP
 	foreach($showings as $show) {
-		print_r($show);
-		echo("<br>");
+		echo('<a href="showing.php?id=' . htmlspecialchars(urlencode($show["showingID"])) . '">');
+		echo(htmlspecialchars($show["startTime"]) . ' ' . htmlspecialchars($show["complexName"]) . ' #' . htmlspecialchars($show["theaterNum"]));
+		echo('</a>');
 	}
 ?>
+</div>
 
 <?PHP
 	// Only show the "add review" section to users who are logged in

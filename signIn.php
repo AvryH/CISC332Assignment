@@ -62,6 +62,8 @@
 
 <html>
 	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="styling.css"/>
 	</head>
 	<body>
 <?PHP
@@ -75,6 +77,17 @@
 			<input name="action" type="hidden" value="logout"></input>
 			<input type="submit" value="Logout"></input>
 		</form>
+
+		<a href="purchases.php">Purchases</a>
+<?PHP
+		if($user["administrator"]) {
+?>
+		<a href="admin/">Administration</a>
+<?PHP
+		}
+?>
+	
+		<br>
 
 		<form method="POST">
 			<input name="action" type="hidden" value="updateUser"></input>
@@ -93,6 +106,7 @@
 
 <?PHP
 	} else {
+		// Show the log in page.
 ?>
 		<form method="POST">
 			<input name="action" type="hidden" value="login"></input>

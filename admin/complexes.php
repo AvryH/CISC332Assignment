@@ -38,7 +38,7 @@
 		<link rel="stylesheet" href="style.css"/>
 	</head>
 	<body>
-		<a href=".">Back to admin panel</a>
+		<a href=".">Back to admin panel</a><br/><br/>
 		<table>
 <?PHP
 	$spec = ["name", "numTheaters", "street", "city", "pc", "phoneNum"];

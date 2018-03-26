@@ -34,7 +34,7 @@
 		<link rel="stylesheet" href="style.css"/>
 	</head>
 	<body>
-		<a href="showings.php">Back to theater list</a>
+		<a href="showings.php">Back to theater list</a><br/><br/>
 		<div class="table">
 <?PHP
 	$spec = ["movieTitle", "startTime"];
@@ -61,14 +61,16 @@
 	} else {
 		// Show a list of theaters
 ?>
-		<a href=".">Back to admin panel</a>
+		<a href=".">Back to admin panel</a><br/><br/>
+		<table>
+			<tr><th>Theater</th></tr>
 <?PHP
 	$query = $db->prepare("SELECT * FROM `theater`");
 	$query->execute();
 	$theaters = $query->fetchAll(PDO::FETCH_ASSOC);
 
 	foreach($theaters as $theater) {
-		echo('<br><a href="showings.php?complexName='
+		echo('<tr><td><a href="showings.php?complexName='
 			. htmlspecialchars(urlencode($theater["complexName"]))
 			. '&theaterNum='
 			. htmlspecialchars(urlencode($theater["theaterNum"]))
@@ -76,9 +78,10 @@
 			. htmlspecialchars($theater["complexName"])
 			. ' #'
 			. htmlspecialchars($theater["theaterNum"])
-			. '</a>');
+			. '</a></td></tr>');
 	}
 ?>
+	</table>
 <?PHP
  }
 ?>

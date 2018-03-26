@@ -17,7 +17,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
 		<link rel="stylesheet" href="style.css"/>
 	</head>
 	<body>
-		<a href=".">Back to admin panel</a>
+		<a href=".">Back to admin panel</a><br/><br/>
 		<table>
 			<tr>
 				<th>Account Number</th>
