@@ -7,7 +7,7 @@
 		if($_POST["action"] === "create") {
 			$stmt = $db->prepare("INSERT INTO `movie`(title, runtime, rating, plotSyn, director, mainActors, prodComp, startDate, endDate, genre, supplier) VALUES(:title, :runtime, :rating, :plotSyn, :director, :mainActors, :prodComp, :startDate, :endDate, :genre, :supplier);");
 			$stmt->bindValue(":title", $_POST["title"]);
-		  $stmt->bindValue(":runtime", $_POST["runtime"]);
+			$stmt->bindValue(":runtime", $_POST["runtime"]);
 			$stmt->bindValue(":rating", $_POST["rating"]);
 			$stmt->bindValue(":plotSyn", $_POST["plotSyn"]);
 			$stmt->bindValue(":director", $_POST["director"]);

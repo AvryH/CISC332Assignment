@@ -14,10 +14,17 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <html>
 	<head>
+		<link rel="stylesheet" href="style.css"/>
 	</head>
 	<body>
 		<a href=".">Back to admin panel</a>
 		<table>
+			<tr>
+				<th>Account Number</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>email</th>
+			</tr>
 			<?PHP
 				// Load all members from the database
 				$query = $db->prepare("SELECT acctNum, fName, lName, email, administrator FROM `customer`");
@@ -31,11 +38,12 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
 					<td class="fName"><?PHP echo(htmlspecialchars($member["fName"])); ?></td>
 					<td class="lName"><?PHP echo(htmlspecialchars($member["lName"])); ?></td>
 					<td class="email"><?PHP echo(htmlspecialchars($member["email"])); ?></td>
-					<td class="administrator"><?PHP echo(htmlspecialchars($member["administrator"])); ?></td>
+					<td class="administrator"><?PHP if($member["administrator"]) { echo("Administrator"); } ?></td>
+					<td class="rentals"><a href="rentals.php?id=<?PHP echo(htmlspecialchars(urlencode($member["acctNum"]))); ?>">View Rentals</a></td>
 					<td class="delete_button"><form method="POST">
-						<input name="action" type="hidden" value="deleteUser"></input>
-						<input name="acctNum" type="hidden" value="<?PHP echo(htmlspecialchars($member["acctNum"])); ?>"></input>
-						<input type="submit" value="DELETE"></input></form></td>
+					<input name="action" type="hidden" value="deleteUser"></input>
+					<input name="acctNum" type="hidden" value="<?PHP echo(htmlspecialchars($member["acctNum"])); ?>"></input>
+					<input type="submit" value="delete"></input></form></td>
 					</tr>
 					<?PHP
 				}

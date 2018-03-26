@@ -38,4 +38,12 @@ function echoUpdate($spec, $primary, $row, $extra_data=[]) {
 	echo('</form>');
 }
 
+function echoStatic($spec, $row) {
+	echo('<div class="tr">');
+	foreach($spec as $col) {
+		echo('<div class="td">' . htmlspecialchars($row[$col]) . '</div>');
+	}
+	echo('</div>');
+}
+
 ?>

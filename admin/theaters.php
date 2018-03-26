@@ -33,10 +33,11 @@
 
 <html>
 	<head>
+		<link rel="stylesheet" href="style.css"/>
 	</head>
 	<body>
 		<a href=".">Back to admin panel</a>
-		<table>
+		<div class="table">
 <?PHP
 	$spec = ["complexName", "theaterNum", "maxNumOfSeat", "screenSize"];
 	$primary = ["complexName", "theaterNum"];
@@ -52,6 +53,6 @@
 		echoUpdate($spec, $primary, $member);
 	}
 ?>
-		</table>
+		</div>
 	</body>
 </html>
