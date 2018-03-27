@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 25, 2018 at 09:50 PM
+-- Generation Time: Mar 27, 2018 at 12:23 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -81,7 +81,8 @@ INSERT INTO `customer` (`acctNum`, `fName`, `lName`, `phoneNum`, `street`, `city
 (36177382, 'James', 'Cornwell', '1122233334', 'Echo Road', 'Kingston', 'k7L8R5', 'jamesMaxCorn@hotmail.com', '4545454545454545', '0635', '$2y$10$P8Ci7Fuw1RFRE8e.4dIa2Ovm551CddF.fAc0upWcsWK6lGWlWDh7e', 0),
 (52794068, 'Nick', 'Cage', '4949494949', 'Charlie Road', 'Kingston', 'k7L5B4', 'feelthecagerage@hotmail.com', '9999999999999999', '0209', '$2y$10$y1SzyGUKY1VvQbqSBWIz8en6.7olFzXOJB5ofpWjNSJUhaPypziAK', 0),
 (58029388, 'Gilbert', 'Marx', '4444445355', 'Golf Road', 'Kingston', 'K7L1E4', 'ggggilbert123@gmail.com', '7373737373737474', '0719', '$2y$10$Hz30tBVRd8CTmzWPi746quUzXnFJLfL7dh/IzVrT.BKG7pb1qnJ/e', 0),
-(87654321, 'Jane', 'Smith', '1234567890', 'Alpha Road', 'Kingston', 'K7L1E5', 'janeSmith@gmail.com', '1212121212121212', '0119', '$2y$10$o2kVnqVpeawTKjT4bot/eOI1w.30TJMwOXAlvUdtZOcChotMSpk4e', 0);
+(87654321, 'Jane', 'Smith', '1234567890', 'Alpha Road', 'Kingston', 'K7L1E5', 'janeSmith@gmail.com', '1212121212121212', '0119', '$2y$10$o2kVnqVpeawTKjT4bot/eOI1w.30TJMwOXAlvUdtZOcChotMSpk4e', 0),
+(938955803, 'Abra', 'Kadabra', '5140539613', '215 Route.', 'Veilstone', '123456', 'kadabra@spoon.info', '3910249234123467', '0522', '$2y$10$dPqyEocKyTW9Z37GDx97SedtSM9KBnfzm.y9mm0iZoQHZhMjIc6Ca', 0);
 
 -- --------------------------------------------------------
 
@@ -149,6 +150,22 @@ CREATE TABLE `reservation` (
   `numTicketsReserved` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `reservation`
+--
+
+INSERT INTO `reservation` (`accountNum`, `showingID`, `numTicketsReserved`) VALUES
+(213142, 1, 5),
+(213142, 9, 4),
+(938955803, 1, 2),
+(938955803, 2, 1),
+(938955803, 4, 2),
+(938955803, 5, 2),
+(938955803, 6, 2),
+(938955803, 10, 3),
+(938955803, 11, 1),
+(938955803, 12, 42);
+
 -- --------------------------------------------------------
 
 --
@@ -169,7 +186,17 @@ CREATE TABLE `showing` (
 
 INSERT INTO `showing` (`showingID`, `movieTitle`, `complexName`, `theaterNum`, `startTime`) VALUES
 (1, 'Face/Off', 'The Kingston Grand Theater', 2, '2018-03-28 10:30:00'),
-(2, 'Ghost Rider', 'The Kingston Grand Theater', 2, '2018-03-28 12:30:00');
+(2, 'Ghost Rider', 'The Kingston Grand Theater', 2, '2018-03-28 12:30:00'),
+(3, 'National Treasure: Book of Secrets', 'Kingston AMC Theater', 1, '2018-03-28 18:30:00'),
+(4, 'Matchstick Men', 'Kingston Cineplex', 4, '2018-03-29 00:30:00'),
+(5, 'Left Behind', 'Kingston Cineplex', 3, '2018-03-28 19:00:00'),
+(6, 'Next', 'Kingston Cineplex', 2, '2018-03-28 23:05:00'),
+(7, 'The Rock', 'Kingston Cineplex', 1, '2018-03-28 20:30:00'),
+(8, 'The Weather Man', 'Kingston Cineplex', 1, '2018-03-28 23:00:00'),
+(9, 'Face/Off', 'Kingston AMC Theater', 2, '2018-03-28 14:30:00'),
+(10, 'National Treasure: Book of Secrets ', 'Kingston AMC Theater', 2, '2018-03-28 16:30:00'),
+(11, 'The Weather Man ', 'Kingston AMC Theater', 2, '2018-03-28 19:00:00'),
+(12, 'The Rock', 'Kingston AMC Theater', 1, '2018-03-28 21:00:00');
 
 -- --------------------------------------------------------
 
@@ -215,7 +242,7 @@ CREATE TABLE `theater` (
 
 INSERT INTO `theater` (`complexName`, `theaterNum`, `maxNumOfSeat`, `screenSize`) VALUES
 ('Kingston AMC Theater', 1, 200, 'M'),
-('Kingston AMC Theater', 2, 100, 's'),
+('Kingston AMC Theater', 2, 100, 'S'),
 ('Kingston Cineplex', 1, 200, 'M'),
 ('Kingston Cineplex', 2, 300, 'L'),
 ('Kingston Cineplex', 3, 250, 'M'),
@@ -243,7 +270,8 @@ CREATE TABLE `watched` (
 INSERT INTO `watched` (`acctNum`, `title`, `customerRating`, `customerReview`) VALUES
 (213142, 'Face/Off', 3, 'Truly one of the movies I\'ve seen this year.'),
 (213142, 'The Rock', 5, 'I liked the part with rocks in it.'),
-(10189321, 'The Rock', 5, 'The acting by Sean Connery is simply the best acting ever.');
+(10189321, 'The Rock', 5, 'The acting by Sean Connery is simply the best acting ever.'),
+(938955803, 'National Treasure: Book of Secrets', 4, 'I like secrets');
 
 --
 -- Indexes for dumped tables
@@ -317,7 +345,7 @@ ALTER TABLE `watched`
 -- AUTO_INCREMENT for table `showing`
 --
 ALTER TABLE `showing`
-  MODIFY `showingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `showingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables
