@@ -63,7 +63,7 @@
 
 		<form method="POST">
 			<p>Name:<p>
-			<input name="fName" type="text" placeholder="First Name" required></input><br>
+			<input name="fName" type="text" placeholder="First Name" autofocus="autofocus" required></input><br>
 			<input name="lName" type="text" placeholder="Last Name" required></input><br>
 			<p>Phone Number:<p>
 			<input name="phoneNum" type="tel" placeholder="phoneNum" required></input><br>

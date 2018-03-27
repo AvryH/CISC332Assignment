@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2018 at 08:58 PM
+-- Generation Time: Mar 27, 2018 at 10:13 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -42,9 +42,9 @@ CREATE TABLE `complex` (
 --
 
 INSERT INTO `complex` (`name`, `numTheaters`, `street`, `city`, `pc`, `phoneNum`) VALUES
-('Kingston AMC Theater', 3, 'Princess Street', 'Kingston', 'K7L1B2', '6135552020'),
-('Kingston Cineplex', 2, 'Princess Street', 'Kingston', 'K7L1B2', '6135551010'),
-('The Kingston Grand Theater', 4, 'Princess Street', 'Kingston', 'K7L1B2', '6135302050');
+('Kingston AMC Theater', 3, '256 Princess Street', 'Kingston', 'K7L1B2', '6135552020'),
+('Kingston Cineplex', 2, '512 Princess Street', 'Kingston', 'K7L1B2', '6135551010'),
+('The Kingston Grand Theater', 4, '1024 Princess Street', 'Kingston', 'K7L1B2', '6135302050');
 
 -- --------------------------------------------------------
 
@@ -81,7 +81,7 @@ INSERT INTO `customer` (`acctNum`, `fName`, `lName`, `phoneNum`, `street`, `city
 (36177382, 'James', 'Cornwell', '1122233334', 'Echo Road', 'Kingston', 'k7L8R5', 'jamesMaxCorn@hotmail.com', '4545454545454545', '0635', '$2y$10$P8Ci7Fuw1RFRE8e.4dIa2Ovm551CddF.fAc0upWcsWK6lGWlWDh7e', 0),
 (52794068, 'Nick', 'Cage', '4949494949', 'Charlie Road', 'Kingston', 'k7L5B4', 'feelthecagerage@hotmail.com', '9999999999999999', '0209', '$2y$10$y1SzyGUKY1VvQbqSBWIz8en6.7olFzXOJB5ofpWjNSJUhaPypziAK', 0),
 (58029388, 'Gilbert', 'Marx', '4444445355', 'Golf Road', 'Kingston', 'K7L1E4', 'ggggilbert123@gmail.com', '7373737373737474', '0719', '$2y$10$Hz30tBVRd8CTmzWPi746quUzXnFJLfL7dh/IzVrT.BKG7pb1qnJ/e', 0),
-(87654321, 'Jane', 'Smith', '1234567890', 'Alpha Road', 'Kingston', 'K7L1E5', 'janeSmith@gmail.com', '1212121212121212', '0119', '$2y$10$o2kVnqVpeawTKjT4bot/eOI1w.30TJMwOXAlvUdtZOcChotMSpk4e', 0),
+(87654321, 'Jane', 'Smith', '1234567890', 'Alpha Road', 'Kingston', 'K7L1E5', 'janeSmith@gmail.com', '1212121212121212', '0119', 'janespassword', 0),
 (938955803, 'Abra', 'Kadabra', '5140539613', '215 Route.', 'Veilstone', '123456', 'kadabra@spoon.info', '3910249234123467', '0522', '$2y$10$dPqyEocKyTW9Z37GDx97SedtSM9KBnfzm.y9mm0iZoQHZhMjIc6Ca', 0);
 
 -- --------------------------------------------------------
@@ -292,7 +292,6 @@ INSERT INTO `watched` (`acctNum`, `title`, `customerRating`, `customerReview`) V
 (213142, 'Face/Off', 3, 'Truly one of the movies I\'ve seen this year.'),
 (213142, 'The Rock', 5, 'I liked the part with rocks in it.'),
 (10189321, 'The Rock', 5, 'The acting by Sean Connery is simply the best acting ever.'),
-(87654321, 'The Rock', 1, 'This movie is the reason why I want to go to couples therapy.'),
 (938955803, 'National Treasure: Book of Secrets', 4, 'I like secrets');
 
 --
@@ -391,7 +390,7 @@ ALTER TABLE `movie`
 -- Constraints for table `reservation`
 --
 ALTER TABLE `reservation`
-  ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`accountNum`) REFERENCES `customer` (`acctNum`),
+  ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`accountNum`) REFERENCES `customer` (`acctNum`) ON DELETE CASCADE,
   ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`showingID`) REFERENCES `showing` (`showingID`);
 
 --
@@ -412,7 +411,7 @@ ALTER TABLE `theater`
 --
 ALTER TABLE `watched`
   ADD CONSTRAINT `watched_ibfk_1` FOREIGN KEY (`title`) REFERENCES `movie` (`title`),
-  ADD CONSTRAINT `watched_ibfk_2` FOREIGN KEY (`acctNum`) REFERENCES `customer` (`acctNum`);
+  ADD CONSTRAINT `watched_ibfk_2` FOREIGN KEY (`acctNum`) REFERENCES `customer` (`acctNum`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
