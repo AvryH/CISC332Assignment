@@ -4,11 +4,11 @@
 
 	// Load all movies from the database
 	if(isset($_GET["complex"])) {
-		$query = $db->prepare("SELECT title FROM `movie` JOIN `showing` ON movieTitle=title WHERE complexName=?");
+		$query = $db->prepare("SELECT title, thumbnail FROM `movie` JOIN `showing` ON movieTitle=title WHERE complexName=?");
 		$query->execute([$_GET["complex"]]);
 		$movies = $query->fetchAll(PDO::FETCH_ASSOC);
 	} else {
-		$query = $db->prepare("SELECT title FROM `movie`");
+		$query = $db->prepare("SELECT title, thumbnail FROM `movie`");
 		$query->execute();
 		$movies = $query->fetchAll(PDO::FETCH_ASSOC);
 	}
@@ -22,6 +22,7 @@
 <html>
 	<head>
 		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="styling.css"/>
 	</head>
 	<body>
 		<h3>Filter by complex:</h3>
@@ -44,7 +45,12 @@
 	foreach($movies as $movie) {
 ?>
 			<a href="movie.php?title=<?PHP echo(htmlspecialchars(urlencode($movie["title"]))); ?>">
-				<?PHP echo(htmlspecialchars($movie["title"])); ?>
+				<div class="movieThumbnail">
+					<img src="<?PHP echo(htmlspecialchars($movie["thumbnail"])); ?>"></img>
+				</div>
+				<div class="movieTitle">
+					<?PHP echo(htmlspecialchars($movie["title"])); ?>
+				</div>
 			</a>
 			<br>
 <?PHP

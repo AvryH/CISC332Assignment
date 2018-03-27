@@ -37,6 +37,11 @@
 .tr:last-child .td, .tr:last-child td, tr:last-child .td, tr:last-child td{
 	border-bottom: 1px solid grey;
 }
+
+.movieThumbnail > img {
+	width: 5em;
+}
+
 .s-header-v2__nav-link {
   position: relative;
   display: block;
