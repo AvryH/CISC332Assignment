@@ -11,15 +11,7 @@
 
 <html lang="en" class="no-js">
     <!-- Begin Head -->
-    <head style="color:red;background:black;">
 		<!-- Basic -->
-		<meta charset="utf-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<title>Documentation</title>
-		<meta name="keywords" content="HTML5 Theme"/>
-		<meta name="description" content="Megakit - HTML5 Theme">
-		<meta name="author" content="keenthemes.com">
 
 		<!-- Web Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i|Montserrat:400,700" rel="stylesheet">
@@ -32,7 +24,7 @@
 		<link href="vendor/cubeportfolio/css/cubeportfolio.min.css" rel="stylesheet" type="text/css"/>
 
 		<!-- Theme Styles -->
-		<link href="css/style.css" rel="stylesheet" type="text/css"/>
+		<link href="styling.css" rel="stylesheet" type="text/css"/>
 		<link href="css/global/global.css" rel="stylesheet" type="text/css"/>
 		</head>
 
@@ -44,17 +36,12 @@
 								<!-- Navbar Row -->
 								<div class="s-header-v2__navbar-row">
 										<!-- Brand and toggle get grouped for better mobile display -->
-										<div class="s-header-v2__navbar-col">
-												<button type="button" class="collapsed s-header-v2__toggle" data-toggle="collapse" data-target="#nav-collapse" aria-expanded="false">
-														<span class="s-header-v2__toggle-icon-bar"></span>
-												</button>
-										</div>
 
 										<div class="s-header-v2__navbar-col s-header-v2__navbar-col-width--180">
 												<!-- Logo -->
 												<div class="s-header__logo">
-														<a href="file:///C:/Users/sesin/Documents/GitHub/CISC332Assignment/landingPage.html" class="s-header__logo-link">
-															<img src="C:\Users\sesin\Documents\logo.png" style="height:250px;width:250px;">
+														<a href="index.php" class="s-header__logo-link">
+															<img src="logo.png" style="height:200px;width:200px;">
 														</a>
 												</div>
 												<!-- End Logo -->
@@ -62,17 +49,16 @@
 
 										<div class="s-header-v2__navbar-col s-header-v2__navbar-col--right">
 												<!-- Collect the nav links, forms, and other content for toggling -->
-												<div class="collapse navbar-collapse s-header-v2__navbar-collapse" id="nav-collapse">
+												<div >
 														<ul class="s-header-v2__nav">
 																<!-- Home -->
 																<!edit urls>
 																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="file:///C:/Users/sesin/Documents/GitHub/CISC332Assignment/landingPage.html" class="s-header-v2__nav-link">Movies</a></li>
 																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="file:///C:/Users/sesin/Documents/GitHub/CISC332Assignment/landingPage.html" class="s-header-v2__nav-link">Showtimes</a></li>
 																<!-- End Home -->
-																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="#" class="s-header-v2__nav-link -is-active">Sign In</a></li>
-																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="#" class="s-header-v2__nav-link -is-active">Sign Up</a></li>
-																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="<?php echo $login_redirect; ?>" class="s-header-v2__nav-link s-header-v2__nav-link--dark"><?php echo $login_status; ?></a></li>
-														</ul>
+																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="signIn.php" class="s-header-v2__nav-link -is-active">Sign In</a></li>
+																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="signUp.php" class="s-header-v2__nav-link -is-active">Sign Up</a></li>
+																</ul>
 												</div>
 												<!-- End Nav Menu -->
 										</div>
@@ -82,8 +68,6 @@
 				</nav>
 				<!-- End Navbar -->
 		</header>
-		<a href="signIn.php">Sign In</a>
-		<a href="signUp.php">Sign Up</a>
 <?PHP
 	foreach($movies as $movie) {
 ?>

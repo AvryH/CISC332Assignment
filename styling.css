@@ -37,3 +37,134 @@
 .tr:last-child .td, .tr:last-child td, tr:last-child .td, tr:last-child td{
 	border-bottom: 1px solid grey;
 }
+.s-header-v2__nav-link {
+  position: relative;
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: Montserrat, sans-serif;
+  color: #3FBFBF;
+  line-height: 5.5rem;
+  text-transform: uppercase;
+  margin: 0 .9rem;
+  transition-duration: 300ms;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+}
+
+.s-header-v2__nav-link.-is-active {
+  color: #3FBFBF;
+}
+
+.s-header-v2__nav-item:last-child .s-header-v2__nav-link {
+  margin-right: 0;
+}
+
+.s-header-v2__nav-item {
+  position: relative;
+  display: block;
+  float: left;
+}
+
+.s-header-v2__nav-item:last-child .s-header-v2__nav-link {
+  margin-right: 0;
+}
+
+@media (max-width: 61.9em) {
+  .s-header-v2__nav-item {
+    float: none;
+  }
+}
+
+.s-header-v2__nav-item .dropdown-backdrop {
+  position: relative;
+}
+
+.s-header-v2__navbar {
+  position: relative;
+  z-index: 1000;
+  min-height: 3.125rem;
+  border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.3);
+  transition-duration: 300ms;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+}
+
+.s-header-v2__navbar:before, .s-header-v2__navbar:after {
+  content: " ";
+  display: table;
+}
+
+.s-header-v2__navbar:after {
+  clear: both;
+}
+
+@media (max-width: 61.9em) {
+  .s-header-v2__navbar {
+    background: #fff;
+    box-shadow: 0 0 0.9375rem 0.25rem rgba(34, 35, 36, 0.05);
+  }
+}
+
+.s-header-v2__navbar-row {
+  display: table-row;
+  clear: both;
+}
+
+@media (max-width: 61.9em) {
+  .s-header-v2__navbar-row {
+    display: inherit;
+  }
+}
+
+/* Columns */
+.s-header-v2__navbar-col {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+@media (max-width: 61.9em) {
+  .s-header-v2__navbar-col {
+    display: block;
+  }
+}
+
+/* Space */
+.s-header-v2__navbar-col-width--180 {
+  width: 11.250rem;
+}
+
+@media (max-width: 61.9em) {
+  .s-header-v2__navbar-col-width--180 {
+    width: auto;
+  }
+}
+
+/* Variations */
+@media (min-width: 62em) {
+  .s-header-v2__navbar-col--left {
+    float: left;
+  }
+  .s-header-v2__navbar-col--left .dropdown__mega-menu {
+    right: auto;
+    left: 10rem;
+  }
+}
+
+@media (min-width: 62em) {
+  .s-header-v2__navbar-col--right {
+    float: right;
+  }
+}
+.s-header__logo {
+  position: relative;
+  z-index: 9999;
+  width: 100%;
+  height: auto;
+  float: left;
+}
+
+.s-header__logo-link {
+  display: inline-block;
+
+}
