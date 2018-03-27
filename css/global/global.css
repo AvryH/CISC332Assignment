@@ -16,7 +16,6 @@
 .g-font-size-13--xs {
   font-size: 0.8125rem !important;
 }
-
 .g-font-size-14--xs {
   font-size: 0.875rem !important;
 }
@@ -1318,8 +1317,8 @@
 
 /* Medium container */
 .g-container--md {
-  padding-right: .9375rem;
-  padding-left: .9375rem;
+  padding-right: 1.2rem;
+  padding-left: 1.2rem;
   margin-right: auto;
   margin-left: auto;
 }
@@ -1359,20 +1358,15 @@
   padding-right: 0;
 }
 
-.g-row-col--2 {
-  margin-right: -.125rem;
-  margin-left: -.125rem;
-}
-
-.g-row-col--2 > [class*="col-"] {
+.g-row-col--2{
   padding-left: .125rem;
   padding-right: .125rem;
 }
 
 /* 5px space row class */
 .g-row-col--5 {
-  margin-right: -.3125rem;
-  margin-left: -.3125rem;
+  margin-right: .3125rem;
+  margin-left: .3125rem;
 }
 
 .g-row-col--5 > [class*="col-"] {
@@ -6723,8 +6717,8 @@
 }
 
 .g-padding-y-150--xs {
-  padding-top: 9.375rem;
-  padding-bottom: 9.375rem;
+  margin-top: 30rem;
+
 }
 
 /* Small screen / phone */

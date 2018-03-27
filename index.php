@@ -40,13 +40,8 @@
 										<div class="s-header-v2__navbar-col s-header-v2__navbar-col-width--180">
 												<!-- Logo -->
 												<div class="s-header__logo">
-<<<<<<< HEAD
 														<a href="index.php" class="s-header__logo-link">
 															<img src="logo.png" style="height:200px;width:200px;">
-=======
-														<a href="landingPage.html" class="s-header__logo-link">
-															<img src="logo.png" style="height:250px;width:250px;">
->>>>>>> dd9512434aeb337223b8ee7579586767001faf1c
 														</a>
 												</div>
 												<!-- End Logo -->
@@ -57,29 +52,13 @@
 												<div >
 														<ul class="s-header-v2__nav">
 																<!-- Home -->
-																<!-- edit urls -->
-																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="landingPage.html" class="s-header-v2__nav-link">Movies</a></li>
-																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="landingPage.html" class="s-header-v2__nav-link">Showtimes</a></li>
+																<!edit urls>
+																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="file:///C:/Users/sesin/Documents/GitHub/CISC332Assignment/landingPage.html" class="s-header-v2__nav-link">Movies</a></li>
+																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="file:///C:/Users/sesin/Documents/GitHub/CISC332Assignment/landingPage.html" class="s-header-v2__nav-link">Showtimes</a></li>
 																<!-- End Home -->
-<<<<<<< HEAD
 																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="signIn.php" class="s-header-v2__nav-link -is-active">Sign In</a></li>
 																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="signUp.php" class="s-header-v2__nav-link -is-active">Sign Up</a></li>
 																</ul>
-=======
-<?PHP
-if(!isset($_SESSION["acctNumber"])) {
-?>
-																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="signIn.php" class="s-header-v2__nav-link -is-active">Sign In</a></li>
-																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="signUp.php" class="s-header-v2__nav-link -is-active">Sign Up</a></li>
-<?PHP
-} else {
-?>
-																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="signIn.php" class="s-header-v2__nav-link -is-active">Account</a></li>
-<?PHP
-}
-?>
-														</ul>
->>>>>>> dd9512434aeb337223b8ee7579586767001faf1c
 												</div>
 												<!-- End Nav Menu -->
 										</div>
@@ -89,6 +68,8 @@ if(!isset($_SESSION["acctNumber"])) {
 				</nav>
 				<!-- End Navbar -->
 		</header>
+		<div style="padding-top: 20rem;" class="g-container--md g-row-col--2">
+
 <?PHP
 	foreach($movies as $movie) {
 ?>
@@ -101,5 +82,6 @@ if(!isset($_SESSION["acctNumber"])) {
 ?>
 
 
+</div>
 	</body>
 </html>
