@@ -2,10 +2,19 @@
 	// Connect to the server
 	require_once(__DIR__ . "/connect.php");
 
-	// Load all movies from the database
-	$query = $db->prepare("SELECT title FROM `movie`");
+	if(isset($_GET["complex"])) {
+		$query = $db->prepare("SELECT title, thumbnail FROM `movie` JOIN `showing` ON movieTitle=title WHERE complexName=?");
+		$query->execute([$_GET["complex"]]);
+		$movies = $query->fetchAll(PDO::FETCH_ASSOC);
+	} else {
+		$query = $db->prepare("SELECT title, thumbnail FROM `movie`");
+		$query->execute();
+		$movies = $query->fetchAll(PDO::FETCH_ASSOC);
+	}
+
+	$query = $db->prepare("SELECT name FROM `complex`");
 	$query->execute();
-	$movies = $query->fetchAll(PDO::FETCH_ASSOC);
+	$complexes = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 
@@ -55,19 +64,24 @@
 				</nav>
 				<!-- End Navbar -->
 		</header>
-		<div class="s-promo-v1" >
 
-<?PHP
-	foreach($movies as $movie) {
-?>
-		<br style="">
-		<a class="movieListing" href="movie.php?title=<?PHP echo(htmlspecialchars(urlencode($movie["title"]))); ?>">
-			<?PHP echo(htmlspecialchars($movie["title"])); ?>
-		</a>
-<?PHP
-	}
-?>
-</div>
+		<div style="padding-top: 1rem;"class="s-promo-v1 selectMovie" >
+			<?PHP
+			foreach($movies as $movie) {
+			?>
+				<a href="movie.php?title=<?PHP echo(htmlspecialchars(urlencode($movie["title"]))); ?>">
+					<div class="promoMovieTitle">
+						<?PHP echo(htmlspecialchars($movie["title"])); ?>
+					</div>
+					<div class="promoMovieThumbnail">
+						<img src="<?PHP echo(htmlspecialchars($movie["thumbnail"])); ?>"></img>
+					</div>
+				</a>
+				<br>
+			<?PHP
+			}
+			?>
+			</div>
 <footer class="g-bg-color--dark">
 		<!-- Links -->
 		<div class="g-hor-divider__dashed--white-opacity-lightest">
