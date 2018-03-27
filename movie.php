@@ -25,10 +25,6 @@
 	$query->execute([$_REQUEST["title"]]);
 	$showings = $query->fetchAll(PDO::FETCH_ASSOC);
 
-	// Load all reviews
-	$query = $db->prepare("SELECT customerRating, customerReview FROM `watched` WHERE title=?");
-	$query->execute([$_REQUEST["title"]]);
-	$reviews = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 Movie:<br>
@@ -64,9 +60,31 @@ Movie:<br>
 ?>
 
 <br><br>Reviews:<br>
-<?PHP
-	foreach($reviews as $rev) {
-		print_r($rev);
-		echo("<br>");
-	}
-?>
+
+
+<table>
+			<tr><th>Rating</th><th>Review</th><th>Poster</th></tr>
+			<?PHP
+				// Load the reviews
+				$query = $db->prepare("SELECT customerRating, customerReview, fName FROM `watched` NATURAL JOIN `customer` WHERE title = ? ORDER BY customerRating DESC");
+				$query->execute([$_REQUEST["title"]]);
+				$cusReviews = $query->fetchAll(PDO::FETCH_ASSOC);
+				
+				//var_dump ($cusReviews);
+				foreach($cusReviews as $rev) {
+					echo("<tr><td>");
+					if(isset($rev)) {
+						echo(htmlspecialchars($rev["customerRating"]));
+					}
+					echo("</td><td>");
+					if(isset($rev)) {
+						echo(htmlspecialchars($rev["customerReview"]));
+					}
+					echo("</td><td>");
+					if(isset($rev)) {
+						echo(htmlspecialchars($rev["fName"]));
+					}
+					echo("</td></tr>");
+				}
+			?>
+		</table>
