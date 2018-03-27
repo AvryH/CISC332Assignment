@@ -5,13 +5,12 @@
 
 	if($_SERVER["REQUEST_METHOD"] === "POST") {
 		if($_POST["action"] === "create") {
-			$stmt = $db->prepare("INSERT INTO `movie`(title, runtime, rating, plotSyn, director, mainActors, prodComp, startDate, endDate, genre, supplier) VALUES(:title, :runtime, :rating, :plotSyn, :director, :mainActors, :prodComp, :startDate, :endDate, :genre, :supplier);");
+			$stmt = $db->prepare("INSERT INTO `movie`(title, runtime, rating, plotSyn, director, prodComp, startDate, endDate, genre, supplier) VALUES(:title, :runtime, :rating, :plotSyn, :director, :prodComp, :startDate, :endDate, :genre, :supplier);");
 			$stmt->bindValue(":title", $_POST["title"]);
 			$stmt->bindValue(":runtime", $_POST["runtime"]);
 			$stmt->bindValue(":rating", $_POST["rating"]);
 			$stmt->bindValue(":plotSyn", $_POST["plotSyn"]);
 			$stmt->bindValue(":director", $_POST["director"]);
-			$stmt->bindValue(":mainActors", $_POST["mainActors"]);
 			$stmt->bindValue(":prodComp", $_POST["prodComp"]);
 			$stmt->bindValue(":startDate", $_POST["startDate"]);
 			$stmt->bindValue(":endDate", $_POST["endDate"]);
@@ -19,13 +18,12 @@
 			$stmt->bindValue(":supplier", $_POST["supplier"]);
 			$stmt->execute();
 		} else if($_POST["action"] === "update") {
-			$stmt= $db->prepare("UPDATE `movie` SET title=:title, runtime=:runtime, rating=:rating, plotSyn=:plotSyn, director=:director, mainActors=:mainActors, prodComp=:prodComp, startDate=:startDate, endDate=:endDate, genre=:genre,  supplier=:supplier WHERE title=:old_title");
+			$stmt= $db->prepare("UPDATE `movie` SET title=:title, runtime=:runtime, rating=:rating, plotSyn=:plotSyn, director=:director, prodComp=:prodComp, startDate=:startDate, endDate=:endDate, genre=:genre,  supplier=:supplier WHERE title=:old_title");
 			$stmt->bindValue(":title", $_POST["title"]);
 		  $stmt->bindValue(":runtime", $_POST["runtime"]);
 			$stmt->bindValue(":rating", $_POST["rating"]);
 			$stmt->bindValue(":plotSyn", $_POST["plotSyn"]);
 			$stmt->bindValue(":director", $_POST["director"]);
-			$stmt->bindValue(":mainActors", $_POST["mainActors"]);
 			$stmt->bindValue(":prodComp", $_POST["prodComp"]);
 			$stmt->bindValue(":startDate", $_POST["startDate"]);
 			$stmt->bindValue(":endDate", $_POST["endDate"]);
@@ -51,7 +49,7 @@
 		<a href=".">Back to admin panel</a><br/><br/>
 		<div class="table">
 <?PHP
-	$spec = ["title", "runtime", "rating", "plotSyn", "director", "mainActors", "prodComp", "startDate", "endDate", "genre", "supplier"];
+	$spec = ["title", "runtime", "rating", "plotSyn", "director", "prodComp", "startDate", "endDate", "genre", "supplier"];
 	$primary = ["title"];
 	echoHeader($spec);
 	echoCreate($spec);

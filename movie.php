@@ -69,26 +69,18 @@
 ?>
 		</div>
 
+		<br>
 <?PHP
-	// Only show the "add review" section to users who are logged in
-	if(isset($_SESSION["acctNumber"])) {
+	$stmt = $db->prepare("SELECT AVG(customerRating) FROM `watched` WHERE title=?");
+	$stmt->execute([$_GET["title"]]);
+	$avg = $stmt->fetchColumn();
+	if($avg !== null) {
 ?>
-		<br><br>Add review:<br>
-		<form method="POST">
-			<input name="action" type="hidden" value="addReview"></input>
-			<input name="title" type="hidden" value="<?PHP echo($_REQUEST["title"]); ?>"></input>
-			<textarea name="customerReview" placeholder="Review text"></textarea>
-			<input name="customerRating" type="number" placeholder="Rating from 1-5 stars"></input>
-			<input type="submit" value="Submit review"></input>
-		</form>
-<?PHP
-	}
-?>
+		<div class="averageReview">
+		Average rating: <?PHP echo(htmlspecialchars($avg)); ?>
+		</div>
 
-<br><br>Reviews:<br>
-
-
-<table>
+		<table>
 			<tr><th>Rating</th><th>Review</th><th>Poster</th></tr>
 			<?PHP
 				// Load the reviews
@@ -114,3 +106,25 @@
 				}
 			?>
 		</table>
+<?PHP
+	} else {
+?>
+No reviews yet...
+<?PHP
+	}
+?>
+<?PHP
+	// Only show the "add review" section to users who are logged in
+	if(isset($_SESSION["acctNumber"])) {
+?>
+		<br><br>Add review:<br>
+		<form method="POST">
+			<input name="action" type="hidden" value="addReview"></input>
+			<input name="title" type="hidden" value="<?PHP echo($_REQUEST["title"]); ?>"></input>
+			<textarea name="customerReview" placeholder="Review text"></textarea>
+			<input name="customerRating" type="number" placeholder="Rating from 1-5 stars"></input>
+			<input type="submit" value="Submit review"></input>
+		</form>
+<?PHP
+	}
+?>

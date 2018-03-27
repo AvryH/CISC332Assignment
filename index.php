@@ -91,7 +91,7 @@
 										<ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
 												<li><a class="g-font-size-15--xs g-color--white-opacity"><u>Contact Us</u></a></li>
 												<li><a class="g-font-size-15--xs g-color--white-opacity">support@royaltheatres.com</a></li>
-												<li><a class="g-font-size-15--xs g-color--white-opacity">+1 800-336-0648</a></li>
+												<li><a class="g-font-size-15--xs g-color--white-opacity">+1 800-100-0101</a></li>
 										</ul>
 								</div>
 						</div>
