@@ -11,53 +11,40 @@
 
 <html lang="en" class="no-js">
     <!-- Begin Head -->
-		<!-- Basic -->
 
-		<!-- Web Fonts -->
-		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i|Montserrat:400,700" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
-
-		<!-- Vendor Styles -->
-		<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-		<link href="vendor/themify/themify.css" rel="stylesheet" type="text/css"/>
-		<link href="vendor/scrollbar/scrollbar.min.css" rel="stylesheet" type="text/css"/>
-		<link href="vendor/cubeportfolio/css/cubeportfolio.min.css" rel="stylesheet" type="text/css"/>
-
-		<!-- Theme Styles -->
 		<link href="styling.css" rel="stylesheet" type="text/css"/>
 		<link href="css/global/global.css" rel="stylesheet" type="text/css"/>
 		</head>
 
 	<body>
-		<header style="background:grey;" class="navbar-fixed-top s-header-v2 js__header-sticky">
+		<header style="background:grey;">
 				<!-- Navbar -->
-				<nav class="s-header-v2__navbar">
-						<div class="container g-display-table--lg">
+				<nav >
+						<div>
 								<!-- Navbar Row -->
 								<div class="s-header-v2__navbar-row">
 										<!-- Brand and toggle get grouped for better mobile display -->
-
-										<div class="s-header-v2__navbar-col s-header-v2__navbar-col-width--180">
+										<div class="s-header-v2__navbar-col">
 												<!-- Logo -->
-												<div class="s-header__logo">
-														<a href="index.php" class="s-header__logo-link">
+												<div>
+														<a href="index.php">
 															<img src="logo.png" style="height:200px;width:200px;">
 														</a>
 												</div>
 												<!-- End Logo -->
 										</div>
 
-										<div class="s-header-v2__navbar-col s-header-v2__navbar-col--right">
+										<div>
 												<!-- Collect the nav links, forms, and other content for toggling -->
 												<div >
-														<ul class="s-header-v2__nav">
+														<ul class="s-header-v2__nav s-header-v2__nav_icons">
 																<!-- Home -->
 																<!edit urls>
-																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="file:///C:/Users/sesin/Documents/GitHub/CISC332Assignment/landingPage.html" class="s-header-v2__nav-link">Movies</a></li>
+																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="signIn.php" class="s-header-v2__nav-link">Sign In</a></li>
+																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="signUp.php" class="s-header-v2__nav-link">Sign Up</a></li>
+																<li style="padding-top: 150px; " class="s-header-v2__nav-item"><a href="file:///C:/Users/sesin/Documents/GitHub/CISC332Assignment/landingPage.html" class="s-header-v2__nav-link">Movies</a></li>
 																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="file:///C:/Users/sesin/Documents/GitHub/CISC332Assignment/landingPage.html" class="s-header-v2__nav-link">Showtimes</a></li>
 																<!-- End Home -->
-																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="signIn.php" class="s-header-v2__nav-link -is-active">Sign In</a></li>
-																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="signUp.php" class="s-header-v2__nav-link -is-active">Sign Up</a></li>
 																</ul>
 												</div>
 												<!-- End Nav Menu -->
@@ -68,20 +55,34 @@
 				</nav>
 				<!-- End Navbar -->
 		</header>
-		<div style="padding-top: 20rem;" class="g-container--md g-row-col--2">
+		<div class="s-promo-v1" >
 
 <?PHP
 	foreach($movies as $movie) {
 ?>
-		<br>
+		<br style="">
 		<a class="movieListing" href="movie.php?title=<?PHP echo(htmlspecialchars(urlencode($movie["title"]))); ?>">
 			<?PHP echo(htmlspecialchars($movie["title"])); ?>
 		</a>
 <?PHP
 	}
 ?>
-
-
 </div>
+<footer class="g-bg-color--dark">
+		<!-- Links -->
+		<div class="g-hor-divider__dashed--white-opacity-lightest">
+				<div class="container g-padding-y-80--xs">
+						<div class="row">
+								<div class="col-sm-4 g-margin-b-20--xs g-margin-b-0--md">
+										<ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
+												<li><a class="g-font-size-15--xs g-color--white-opacity"><u>Contact Us</u></a></li>
+												<li><a class="g-font-size-15--xs g-color--white-opacity">support@royaltheatres.com</a></li>
+												<li><a class="g-font-size-15--xs g-color--white-opacity">+1 800-336-0648</a></li>
+										</ul>
+								</div>
+						</div>
+				</div>
+		</div>
+</footer>
 	</body>
 </html>

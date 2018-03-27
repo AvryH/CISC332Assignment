@@ -1,3 +1,29 @@
+em > a,
+li > a {
+  color: #242424;
+}
+
+em > a:hover,
+li > a:hover {
+  color: #384242;
+}
+a{
+ color: #13b1cd;
+ text-decoration: none;
+}
+
+a:focus, a:hover {
+ color: #1095ac;
+ text-decoration: none;
+}
+
+a:focus {
+ outline: none;
+}
+
+body {
+    margin: 0;
+}
 .movieListing {
 	color: white;
 	text-decoration: none;
@@ -117,34 +143,18 @@
   transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
 }
 
-.s-header-v2__nav-link.-is-active {
-  color: #3FBFBF;
-}
-
-.s-header-v2__nav-item:last-child .s-header-v2__nav-link {
-  margin-right: 0;
-}
-
 .s-header-v2__nav-item {
   position: relative;
   display: block;
-  float: left;
+  float: right;
 }
 
-.s-header-v2__nav-item:last-child .s-header-v2__nav-link {
-  margin-right: 0;
-}
 
-@media (max-width: 61.9em) {
-  .s-header-v2__nav-item {
-    float: none;
-  }
+.s-header-v2__nav {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
 }
-
-.s-header-v2__nav-item .dropdown-backdrop {
-  position: relative;
-}
-
 .s-header-v2__navbar {
   position: relative;
   z-index: 1000;
@@ -155,31 +165,10 @@
   transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
 }
 
-.s-header-v2__navbar:before, .s-header-v2__navbar:after {
-  content: " ";
-  display: table;
-}
-
-.s-header-v2__navbar:after {
-  clear: both;
-}
-
-@media (max-width: 61.9em) {
-  .s-header-v2__navbar {
-    background: #fff;
-    box-shadow: 0 0 0.9375rem 0.25rem rgba(34, 35, 36, 0.05);
-  }
-}
 
 .s-header-v2__navbar-row {
   display: table-row;
   clear: both;
-}
-
-@media (max-width: 61.9em) {
-  .s-header-v2__navbar-row {
-    display: inherit;
-  }
 }
 
 /* Columns */
@@ -188,48 +177,16 @@
   vertical-align: middle;
 }
 
-@media (max-width: 61.9em) {
-  .s-header-v2__navbar-col {
-    display: block;
-  }
+
+.s-header-v2__nav_icons{
+position:
+relative;
+padding-left:40rem;
 }
 
-/* Space */
-.s-header-v2__navbar-col-width--180 {
-  width: 11.250rem;
-}
-
-@media (max-width: 61.9em) {
-  .s-header-v2__navbar-col-width--180 {
-    width: auto;
-  }
-}
-
-/* Variations */
-@media (min-width: 62em) {
-  .s-header-v2__navbar-col--left {
-    float: left;
-  }
-  .s-header-v2__navbar-col--left .dropdown__mega-menu {
-    right: auto;
-    left: 10rem;
-  }
-}
-
-@media (min-width: 62em) {
-  .s-header-v2__navbar-col--right {
-    float: right;
-  }
-}
-.s-header__logo {
-  position: relative;
-  z-index: 9999;
-  width: 100%;
-  height: auto;
-  float: left;
-}
-
-.s-header__logo-link {
-  display: inline-block;
-
+.s-promo-v1{
+	position:
+	relative;
+	left:1rem;
+	top:0;
 }
