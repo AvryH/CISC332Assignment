@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 27, 2018 at 12:23 AM
+-- Generation Time: Mar 27, 2018 at 05:32 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -121,22 +121,23 @@ CREATE TABLE `movie` (
   `startDate` date NOT NULL,
   `endDate` date NOT NULL,
   `genre` varchar(50) DEFAULT NULL,
-  `supplier` varchar(100) DEFAULT NULL
+  `supplier` varchar(100) DEFAULT NULL,
+  `thumbnail` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `movie`
 --
 
-INSERT INTO `movie` (`title`, `runtime`, `rating`, `plotSyn`, `director`, `mainActors`, `prodComp`, `startDate`, `endDate`, `genre`, `supplier`) VALUES
-('Face/Off', 148, '73', 'In order to foil an extortion plot, an FBI agent undergoes a facial transplant surgery and assumes the identity and physical appearance of a terrorist, but the plan turns from bad to worse.', 'John Woo', 'John Travolta, Nicolas Cage, Joan Allen', 'Sony Pictures', '2018-03-01', '2018-04-20', 'Action', NULL),
-('Ghost Rider', 114, '52', 'Stunt motorcyclist Johnny Blaze gives up his soul to become a hellblazing vigilante, to fight against power hungry Blackheart, the son of the devil.', 'Mark Steven Johnson', 'Nicolas Cage, Eva Mendes', 'Sam Elliott', '2018-03-04', '2018-05-15', 'Action', 'Action'),
-('Left Behind', 110, '31', 'A small group of survivors are left behind after millions of people suddenly vanish and the world is plunged into chaos and destruction.', 'Vic Armstrong', 'Nicolas Cage, Lea Thompson, Cassi Thompson', 'Stoney Lake Entertainment', '2018-02-28', '2018-04-18', 'Drama', 'Reel to Reel'),
-('Matchstick Men', 116, '73', 'A phobic con artist and his protégé are on the verge of pulling off a lucrative swindle when the former\'s teenage daughter arrives unexpectedly.', 'Ridley Scott', 'Nicolas Cage, Alison Lohman, Sam Rockwell', 'Warner Bros.', '2018-03-02', '2018-05-11', 'Comedy', 'Cinema Supplies'),
-('National Treasure: Book of Secrets', 124, '65', 'Benjamin Gates must follow a clue left in John Wilkes Booth\'s diary to prove his ancestor\'s innocence in the assassination of Abraham Lincoln.', 'Jon Turteltaub', 'Nicholas Cage, Diane Kruger, Justin Bartha', 'Walt Disney Pictures', '2018-02-25', '2018-04-25', 'Action', 'Action'),
-('Next', 93, '62', 'A Las Vegas magician who can see into the future is pursued by FBI agents seeking to use his abilities to prevent a nuclear terrorist attack.', 'Lee Tamahori', 'Nicolas Cage, Juliane Moore, Jessica Biel', 'Paramount Pictures', '2018-03-02', '2018-05-01', 'Action', 'Reel to Reel'),
-('The Rock', 136, '74', 'A mild-mannered chemist and an ex-con must lead the counterstrike when a rogue group of military men, led by a renegade general, threaten a nerve gas attack from Alcatraz against San Francisco.', 'Michael Bay', 'Sean Connery, Nicolas Cage, Ed Harris', 'Hollywood Pictures', '2018-02-13', '2018-03-25', 'Action', 'Cinema Supplies'),
-('The Weather Man', 102, '66', 'A Chicago weather man, separated from his wife and children, debates whether professional and personal success are mutually exclusive.', 'Gore Verbinski', 'Nicolas Cage, Hope Davis, Nicholas Hoult', 'Paramount Pictures', '2018-03-04', '2018-05-10', 'Comedy', 'Action');
+INSERT INTO `movie` (`title`, `runtime`, `rating`, `plotSyn`, `director`, `mainActors`, `prodComp`, `startDate`, `endDate`, `genre`, `supplier`, `thumbnail`) VALUES
+('Face/Off', 148, '73', 'In order to foil an extortion plot, an FBI agent undergoes a facial transplant surgery and assumes the identity and physical appearance of a terrorist, but the plan turns from bad to worse.', 'John Woo', 'John Travolta, Nicolas Cage, Joan Allen', 'Sony Pictures', '2018-03-01', '2018-04-20', 'Action', NULL, 'http://2.bp.blogspot.com/-8hVWqtGlSPc/Uo0JxHrKWFI/AAAAAAAAA4o/hGb-LB17sB4/s1600/face_off_ver6_xlg.jpg'),
+('Ghost Rider', 114, '52', 'Stunt motorcyclist Johnny Blaze gives up his soul to become a hellblazing vigilante, to fight against power hungry Blackheart, the son of the devil.', 'Mark Steven Johnson', 'Nicolas Cage, Eva Mendes', 'Sam Elliott', '2018-03-04', '2018-05-15', 'Action', 'Action', 'http://static.tvgcdn.net/rovi/showcards/movie/285896/thumbs/16835779_899x1199.jpg'),
+('Left Behind', 110, '31', 'A small group of survivors are left behind after millions of people suddenly vanish and the world is plunged into chaos and destruction.', 'Vic Armstrong', 'Nicolas Cage, Lea Thompson, Cassi Thompson', 'Stoney Lake Entertainment', '2018-02-28', '2018-04-18', 'Drama', 'Reel to Reel', 'https://www.dvdsreleasedates.com/posters/800/L/Left-Behind-2014-movie-poster.jpg'),
+('Matchstick Men', 116, '73', 'A phobic con artist and his protégé are on the verge of pulling off a lucrative swindle when the former\'s teenage daughter arrives unexpectedly.', 'Ridley Scott', 'Nicolas Cage, Alison Lohman, Sam Rockwell', 'Warner Bros.', '2018-03-02', '2018-05-11', 'Comedy', 'Cinema Supplies', 'https://www.dvdsreleasedates.com/posters/800/M/Matchstick-Men-2003-movie-poster.jpg'),
+('National Treasure: Book of Secrets', 124, '65', 'Benjamin Gates must follow a clue left in John Wilkes Booth\'s diary to prove his ancestor\'s innocence in the assassination of Abraham Lincoln.', 'Jon Turteltaub', 'Nicholas Cage, Diane Kruger, Justin Bartha', 'Walt Disney Pictures', '2018-02-25', '2018-04-25', 'Action', 'Action', 'http://3.bp.blogspot.com/_EuHEDwCmE1I/TCABTX0fR8I/AAAAAAAACOk/n2okZPa9sfI/s1600/91-national.treasure.book.of.secrets.2007-.jpg'),
+('Next', 93, '62', 'A Las Vegas magician who can see into the future is pursued by FBI agents seeking to use his abilities to prevent a nuclear terrorist attack.', 'Lee Tamahori', 'Nicolas Cage, Juliane Moore, Jessica Biel', 'Paramount Pictures', '2018-03-02', '2018-05-01', 'Action', 'Reel to Reel', 'https://derricklferguson.files.wordpress.com/2012/08/next.jpg'),
+('The Rock', 136, '74', 'A mild-mannered chemist and an ex-con must lead the counterstrike when a rogue group of military men, led by a renegade general, threaten a nerve gas attack from Alcatraz against San Francisco.', 'Michael Bay', 'Sean Connery, Nicolas Cage, Ed Harris', 'Hollywood Pictures', '2018-02-13', '2018-03-25', 'Action', 'Cinema Supplies', 'https://mindreels.files.wordpress.com/2013/09/rock.jpg'),
+('The Weather Man', 102, '66', 'A Chicago weather man, separated from his wife and children, debates whether professional and personal success are mutually exclusive.', 'Gore Verbinski', 'Nicolas Cage, Hope Davis, Nicholas Hoult', 'Paramount Pictures', '2018-03-04', '2018-05-10', 'Comedy', 'Action', 'https://upload.wikimedia.org/wikipedia/en/c/cb/Weather_man.jpg');
 
 -- --------------------------------------------------------
 
@@ -288,7 +289,9 @@ ALTER TABLE `complex`
 --
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`acctNum`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `email_2` (`email`),
+  ADD UNIQUE KEY `email_3` (`email`);
 
 --
 -- Indexes for table `mainactors`
