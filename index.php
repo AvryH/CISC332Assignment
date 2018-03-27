@@ -53,8 +53,8 @@
 										<div class="s-header-v2__navbar-col s-header-v2__navbar-col-width--180">
 												<!-- Logo -->
 												<div class="s-header__logo">
-														<a href="file:///C:/Users/sesin/Documents/GitHub/CISC332Assignment/landingPage.html" class="s-header__logo-link">
-															<img src="C:\Users\sesin\Documents\logo.png" style="height:250px;width:250px;">
+														<a href="landingPage.html" class="s-header__logo-link">
+															<img src="logo.png" style="height:250px;width:250px;">
 														</a>
 												</div>
 												<!-- End Logo -->
@@ -65,13 +65,22 @@
 												<div class="collapse navbar-collapse s-header-v2__navbar-collapse" id="nav-collapse">
 														<ul class="s-header-v2__nav">
 																<!-- Home -->
-																<!edit urls>
-																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="file:///C:/Users/sesin/Documents/GitHub/CISC332Assignment/landingPage.html" class="s-header-v2__nav-link">Movies</a></li>
-																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="file:///C:/Users/sesin/Documents/GitHub/CISC332Assignment/landingPage.html" class="s-header-v2__nav-link">Showtimes</a></li>
+																<!-- edit urls -->
+																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="landingPage.html" class="s-header-v2__nav-link">Movies</a></li>
+																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="landingPage.html" class="s-header-v2__nav-link">Showtimes</a></li>
 																<!-- End Home -->
-																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="#" class="s-header-v2__nav-link -is-active">Sign In</a></li>
-																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="#" class="s-header-v2__nav-link -is-active">Sign Up</a></li>
-																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="<?php echo $login_redirect; ?>" class="s-header-v2__nav-link s-header-v2__nav-link--dark"><?php echo $login_status; ?></a></li>
+<?PHP
+if(!isset($_SESSION["acctNumber"])) {
+?>
+																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="signIn.php" class="s-header-v2__nav-link -is-active">Sign In</a></li>
+																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="signUp.php" class="s-header-v2__nav-link -is-active">Sign Up</a></li>
+<?PHP
+} else {
+?>
+																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="signIn.php" class="s-header-v2__nav-link -is-active">Account</a></li>
+<?PHP
+}
+?>
 														</ul>
 												</div>
 												<!-- End Nav Menu -->
