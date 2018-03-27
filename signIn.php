@@ -25,11 +25,9 @@
 					$_SESSION["acctNumber"] = $acctNumber;
 				} else {
 					echo("The password was incorrect");
-					exit();
 				}
 			} else {
 				echo("No user with that email was found");
-				exit();
 			}
 		} else if($_POST["action"] === "logout") {
 			unset($_SESSION["acctNumber"]);
