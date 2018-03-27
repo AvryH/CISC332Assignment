@@ -38,8 +38,68 @@
 	border-bottom: 1px solid grey;
 }
 
-.movieThumbnail > img {
+.movieThumbnail > img, .movieImage > img {
 	width: 5em;
+}
+
+.movieInfo {
+	background: #eeeeee;
+	display: grid;
+	grid-gap: 10px;
+}
+
+.movieImage {
+	grid-column: 1;
+	grid-row: 1 / span 2;
+}
+
+.movieTitle {
+	text-align: center;
+	font-weight: bold;
+	font-size: 2em;
+	grid-column: 2;
+	grid-row: 1;
+}
+
+.movieRating {
+	text-align: center;
+	grid-column: 4;
+	grid-row: 1;
+}
+
+.movieDirector {
+	grid-column: 1;
+	grid-row: 3;
+}
+
+.movieMainActors {
+	grid-column: 2;
+	grid-row: 3;
+}
+
+.moviePlot {
+	grid-column: 2;
+	grid-row: 2;
+}
+
+.movieProdComp {
+	grid-column: 3;
+	grid-row: 2;
+}
+
+.movieSupplier {
+	grid-column: 3;
+	grid-row: 3;
+}
+
+.movieGenre {
+	grid-column: 4;
+	grid-row: 2;
+}
+
+.movieDates {
+	grid-column: 4;
+	grid-row: 3;
 }
 
 .s-header-v2__nav-link {
