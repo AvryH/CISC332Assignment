@@ -12,13 +12,15 @@
 	if($_SERVER["REQUEST_METHOD"] === "POST") {
 		if($_POST["action"] === "login") {
 			// Load the hashed password from the database
-			$acctNumber = $_POST["acctNumber"];
-			$stmt = $db->prepare("SELECT password FROM `customer` WHERE acctNum=?");
-			$stmt->execute([$acctNumber]);
-			$hash = $stmt->fetchColumn();
+			$email = $_POST["email"];
+			$stmt = $db->prepare("SELECT password, acctNum FROM `customer` WHERE email=?");
+			$stmt->execute([$email]);
+			$user = $stmt->fetch(PDO::FETCH_ASSOC);
+			$hash = $user["password"];
+			$acctNumber = $user["acctNum"];
 
 			if($hash !== false) {
-				if(password_verify($_POST["password"], $hash)) {
+				if(password_verify($_POST["password"], $user["password"])) {
 					// The password was correct
 					$_SESSION["acctNumber"] = $acctNumber;
 				} else {
@@ -26,7 +28,7 @@
 					exit();
 				}
 			} else {
-				echo("No user with that id was found");
+				echo("No user with that email was found");
 				exit();
 			}
 		} else if($_POST["action"] === "logout") {
@@ -60,6 +62,8 @@
 
 <html>
 	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="styling.css"/>
 	</head>
 	<body>
 <?PHP
@@ -73,6 +77,17 @@
 			<input name="action" type="hidden" value="logout"></input>
 			<input type="submit" value="Logout"></input>
 		</form>
+
+		<a href="purchases.php">Purchases</a>
+<?PHP
+		if($user["administrator"]) {
+?>
+		<a href="admin/">Administration</a>
+<?PHP
+		}
+?>
+	
+		<br>
 
 		<form method="POST">
 			<input name="action" type="hidden" value="updateUser"></input>
@@ -91,10 +106,11 @@
 
 <?PHP
 	} else {
+		// Show the log in page.
 ?>
 		<form method="POST">
 			<input name="action" type="hidden" value="login"></input>
-			<input name="acctNumber" type="text" placeholder="user id"></input>
+			<input name="email" type="text" placeholder="email"></input>
 			<input name="password" type="password" placeholder="password"></input>
 			<input type="submit" value="Login"></input>
 		</form>

@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+
+
 <?PHP
 	//////////
 	// Valid types of request to this page:
@@ -12,7 +15,7 @@
 		// Try to add the user
 		$query = $db->prepare("INSERT INTO customer (acctNum, fName, lName, phoneNum, street, city, pc, email, CCNum, CCExp, password, administrator) VALUES (:acctNum, :fName, :lName, :phoneNum, :street, :city, :pc, :email, :CCNum, :CCExp, :password, :administrator);");
 
-		$acctNumber = random_int(0, pow(2,32)-1);
+		$acctNumber = random_int(0, 1<<30);
 
 		$query->bindValue(":acctNum", $acctNumber);
 		$query->bindValue(":fName", $_POST["fName"]);
@@ -36,31 +39,44 @@
 		} else {
 			// Display some error
 			echo("Error creating account");
+			print_r($db->errorInfo());
 			exit(1);
 		}
 	} else {
 		// Show the normal page
 ?>
-<!DOCTYPE html>
-
 <html>
+	<!-- This is the sign in page -->
 	<head>
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" href="styling.css"/>
+		<script src="javaScript.js"></script>
 	</head>
 	<body>
+		<h1>Sign Up:</h1>
+
 		<form method="POST">
-			<input name="fName" type="text" placeholder="fName"></input><br>
-			<input name="lName" type="text" placeholder="lName"></input><br>
-			<input name="phoneNum" type="text" placeholder="phoneNum"></input><br>
-			<input name="street" type="text" placeholder="street"></input><br>
-			<input name="city" type="text" placeholder="city"></input><br>
-			<input name="pc" type="text" placeholder="pc"></input><br>
-			<input name="email" type="text" placeholder="email"></input><br>
+			<p>Name:<p>
+			<input name="fName" type="text" placeholder="First Name" required></input><br>
+			<input name="lName" type="text" placeholder="Last Name" required></input><br>
+			<p>Phone Number:<p>
+			<input name="phoneNum" type="tel" placeholder="phoneNum" required></input><br>
+			<p>Address:<p>
+			<input name="street" type="text" placeholder="Street Address" required></input><br>
+			<input name="city" type="text" placeholder="City" required></input><br>
+			<input name="pc" type="text" placeholder="Postal Code" required></input><br>
+			<p>Email:<p>
+			<input name="email" type="email" placeholder="email" required></input><br>
+			<p>Credit Card Number:<p>
 			<input name="CCNum" type="text" placeholder="CCNum"></input><br>
-			<input name="CCExp" type="text" placeholder="CCExp"></input><br>
-			<input name="password" type="text" placeholder="password"></input><br>
-			<input type="submit" value="Sign Up"></input><br>
+			<p>Credit Card Expiry Date:<p>
+			<input name="CCExp" type="month" placeholder="CCExp"></input><br>
+			<p>Password:<p>
+			<input name="password" id="password" type="password" placeholder="password" required onkeyup='arePWtheSame();'></input><br>
+			<p>Confirm Password:<p>
+			<input name="confirm_password" id="confirm_password" type="password" placeholder="confirm_password" required onkeyup='arePWtheSame();'></input>
+			<span id='areMatching'></span><br><br>
+			<input id="submit" type="submit" value="Sign Up"></input><br>
 		</form>
 	</body>
 </html>
