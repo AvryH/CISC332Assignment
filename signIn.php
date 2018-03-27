@@ -24,7 +24,7 @@
 					// The password was correct
 					$_SESSION["acctNumber"] = $acctNumber;
 				} else {
-					echo("The password was incorrect");
+					echo('<span style="color:red;">The password was incorrect</span>');
 				}
 			} else {
 				echo("No user with that email was found");
@@ -109,6 +109,7 @@
 		<form method="POST">
 			<input name="action" type="hidden" value="login"></input>
 			<input name="email" type="text" placeholder="email"></input>
+			<input name="password" type="password" placeholder="password"></input>
 			<input name="password" type="password" placeholder="password"></input>
 			<input type="submit" value="Login"></input>
 		</form>
