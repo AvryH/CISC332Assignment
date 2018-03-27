@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 27, 2018 at 06:16 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Host: 127.0.0.1
+-- Generation Time: Mar 27, 2018 at 08:58 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -134,7 +134,7 @@ INSERT INTO `mainactors` (`FName`, `LName`, `MovieTitle`) VALUES
 CREATE TABLE `movie` (
   `title` varchar(50) NOT NULL,
   `runtime` int(11) NOT NULL,
-  `rating` varchar(3) DEFAULT NULL,
+  `rating` varchar(4) DEFAULT NULL,
   `plotSyn` varchar(200) DEFAULT NULL,
   `director` varchar(100) DEFAULT NULL,
   `prodComp` varchar(100) DEFAULT NULL,
@@ -150,14 +150,14 @@ CREATE TABLE `movie` (
 --
 
 INSERT INTO `movie` (`title`, `runtime`, `rating`, `plotSyn`, `director`, `prodComp`, `startDate`, `endDate`, `genre`, `supplier`, `thumbnail`) VALUES
-('Face/Off', 148, '73', 'In order to foil an extortion plot, an FBI agent undergoes a facial transplant surgery and assumes the identity and physical appearance of a terrorist, but the plan turns from bad to worse.', 'John Woo', 'Sony Pictures', '2018-03-01', '2018-04-20', 'Action', NULL, 'http://2.bp.blogspot.com/-8hVWqtGlSPc/Uo0JxHrKWFI/AAAAAAAAA4o/hGb-LB17sB4/s1600/face_off_ver6_xlg.jpg'),
-('Ghost Rider', 114, '52', 'Stunt motorcyclist Johnny Blaze gives up his soul to become a hellblazing vigilante, to fight against power hungry Blackheart, the son of the devil.', 'Mark Steven Johnson', 'Sam Elliott', '2018-03-04', '2018-05-15', 'Action', 'Action', 'http://static.tvgcdn.net/rovi/showcards/movie/285896/thumbs/16835779_899x1199.jpg'),
-('Left Behind', 110, '31', 'A small group of survivors are left behind after millions of people suddenly vanish and the world is plunged into chaos and destruction.', 'Vic Armstrong', 'Stoney Lake Entertainment', '2018-02-28', '2018-04-18', 'Drama', 'Reel to Reel', 'https://www.dvdsreleasedates.com/posters/800/L/Left-Behind-2014-movie-poster.jpg'),
-('Matchstick Men', 116, '73', 'A phobic con artist and his protégé are on the verge of pulling off a lucrative swindle when the former\'s teenage daughter arrives unexpectedly.', 'Ridley Scott', 'Warner Bros.', '2018-03-02', '2018-05-11', 'Comedy', 'Cinema Supplies', 'https://www.dvdsreleasedates.com/posters/800/M/Matchstick-Men-2003-movie-poster.jpg'),
-('National Treasure: Book of Secrets', 124, '65', 'Benjamin Gates must follow a clue left in John Wilkes Booth\'s diary to prove his ancestor\'s innocence in the assassination of Abraham Lincoln.', 'Jon Turteltaub', 'Walt Disney Pictures', '2018-02-25', '2018-04-25', 'Action', 'Action', 'http://3.bp.blogspot.com/_EuHEDwCmE1I/TCABTX0fR8I/AAAAAAAACOk/n2okZPa9sfI/s1600/91-national.treasure.book.of.secrets.2007-.jpg'),
-('Next', 93, '62', 'A Las Vegas magician who can see into the future is pursued by FBI agents seeking to use his abilities to prevent a nuclear terrorist attack.', 'Lee Tamahori', 'Paramount Pictures', '2018-03-02', '2018-05-01', 'Action', 'Reel to Reel', 'https://derricklferguson.files.wordpress.com/2012/08/next.jpg'),
-('The Rock', 136, '74', 'A mild-mannered chemist and an ex-con must lead the counterstrike when a rogue group of military men, led by a renegade general, threaten a nerve gas attack from Alcatraz against San Francisco.', 'Michael Bay', 'Hollywood Pictures', '2018-02-13', '2018-03-25', 'Action', 'Cinema Supplies', 'https://mindreels.files.wordpress.com/2013/09/rock.jpg'),
-('The Weather Man', 102, '66', 'A Chicago weather man, separated from his wife and children, debates whether professional and personal success are mutually exclusive.', 'Gore Verbinski', 'Paramount Pictures', '2018-03-04', '2018-05-10', 'Comedy', 'Action', 'https://upload.wikimedia.org/wikipedia/en/c/cb/Weather_man.jpg');
+('Face/Off', 148, 'R', 'In order to foil an extortion plot, an FBI agent undergoes a facial transplant surgery and assumes the identity and physical appearance of a terrorist, but the plan turns from bad to worse.', 'John Woo', 'Sony Pictures', '2018-03-01', '2018-04-20', 'Action', 'Reel to Reel', 'http://2.bp.blogspot.com/-8hVWqtGlSPc/Uo0JxHrKWFI/AAAAAAAAA4o/hGb-LB17sB4/s1600/face_off_ver6_xlg.jpg'),
+('Ghost Rider', 114, 'PG13', 'Stunt motorcyclist Johnny Blaze gives up his soul to become a hellblazing vigilante, to fight against power hungry Blackheart, the son of the devil.', 'Mark Steven Johnson', 'Sam Elliott', '2018-03-04', '2018-05-15', 'Action', 'Action', 'http://static.tvgcdn.net/rovi/showcards/movie/285896/thumbs/16835779_899x1199.jpg'),
+('Left Behind', 110, 'PG13', 'A small group of survivors are left behind after millions of people suddenly vanish and the world is plunged into chaos and destruction.', 'Vic Armstrong', 'Stoney Lake Entertainment', '2018-02-28', '2018-04-18', 'Drama', 'Reel to Reel', 'https://www.dvdsreleasedates.com/posters/800/L/Left-Behind-2014-movie-poster.jpg'),
+('Matchstick Men', 116, 'PG13', 'A phobic con artist and his protÃ©gÃ© are on the verge of pulling off a lucrative swindle when the former\'s teenage daughter arrives unexpectedly.', 'Ridley Scott', 'Warner Bros.', '2018-03-02', '2018-05-11', 'Comedy', 'Cinema Supplies', 'https://www.dvdsreleasedates.com/posters/800/M/Matchstick-Men-2003-movie-poster.jpg'),
+('National Treasure: Book of Secrets', 124, 'PG', 'Benjamin Gates must follow a clue left in John Wilkes Booth\'s diary to prove his ancestor\'s innocence in the assassination of Abraham Lincoln.', 'Jon Turteltaub', 'Walt Disney Pictures', '2018-02-25', '2018-04-25', 'Action', 'Action', 'http://3.bp.blogspot.com/_EuHEDwCmE1I/TCABTX0fR8I/AAAAAAAACOk/n2okZPa9sfI/s1600/91-national.treasure.book.of.secrets.2007-.jpg'),
+('Next', 93, 'R', 'A Las Vegas magician who can see into the future is pursued by FBI agents seeking to use his abilities to prevent a nuclear terrorist attack.', 'Lee Tamahori', 'Paramount Pictures', '2018-03-02', '2018-05-01', 'Action', 'Reel to Reel', 'https://derricklferguson.files.wordpress.com/2012/08/next.jpg'),
+('The Rock', 136, 'PG13', 'A mild-mannered chemist and an ex-con must lead the counterstrike when a rogue group of military men, led by a renegade general, threaten a nerve gas attack from Alcatraz against San Francisco.', 'Michael Bay', 'Hollywood Pictures', '2018-02-13', '2018-03-25', 'Action', 'Cinema Supplies', 'https://mindreels.files.wordpress.com/2013/09/rock.jpg'),
+('The Weather Man', 102, 'R', 'A Chicago weather man, separated from his wife and children, debates whether professional and personal success are mutually exclusive.', 'Gore Verbinski', 'Paramount Pictures', '2018-03-04', '2018-05-10', 'Comedy', 'Action', 'https://upload.wikimedia.org/wikipedia/en/c/cb/Weather_man.jpg');
 
 -- --------------------------------------------------------
 
@@ -292,6 +292,7 @@ INSERT INTO `watched` (`acctNum`, `title`, `customerRating`, `customerReview`) V
 (213142, 'Face/Off', 3, 'Truly one of the movies I\'ve seen this year.'),
 (213142, 'The Rock', 5, 'I liked the part with rocks in it.'),
 (10189321, 'The Rock', 5, 'The acting by Sean Connery is simply the best acting ever.'),
+(87654321, 'The Rock', 1, 'This movie is the reason why I want to go to couples therapy.'),
 (938955803, 'National Treasure: Book of Secrets', 4, 'I like secrets');
 
 --
