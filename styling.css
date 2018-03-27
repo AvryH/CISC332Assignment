@@ -20,6 +20,15 @@ a:focus, a:hover {
 a:focus {
  outline: none;
 }
+h1{
+ font-family: Montserrat, sans-serif;
+}
+h3{
+ font-family: Montserrat, sans-serif;
+}
+p{
+ font-family: Montserrat, sans-serif;
+}
 
 body {
     margin: 0;
@@ -83,6 +92,7 @@ body {
 }
 
 .movieTitle {
+	font-family: Montserrat, sans-serif;
 	text-align: center;
 	font-weight: bold;
 	font-size: 2em;
@@ -199,6 +209,6 @@ padding-left:40rem;
 .s-promo-v1{
 	position:
 	relative;
-	left:1rem;
+	padding-left:1rem;
 	top:0;
 }

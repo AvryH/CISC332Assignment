@@ -23,11 +23,50 @@
 	<head>
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" href="styling.css"/>
+		<link href="css/global/global.css" rel="stylesheet" type="text/css"/>
 	</head>
 	<body>
-		<h3>Filter by complex:</h3>
+		<header style="background:grey;">
+				<!-- Navbar -->
+				<nav >
+						<div>
+								<!-- Navbar Row -->
+								<div class="s-header-v2__navbar-row">
+										<!-- Brand and toggle get grouped for better mobile display -->
+										<div class="s-header-v2__navbar-col">
+												<!-- Logo -->
+												<div>
+														<a href="index.php">
+															<img src="logo.png" style="height:200px;width:200px;">
+														</a>
+												</div>
+												<!-- End Logo -->
+										</div>
+
+										<div>
+												<!-- Collect the nav links, forms, and other content for toggling -->
+												<div >
+														<ul class="s-header-v2__nav s-header-v2__nav_icons">
+																<!-- Home -->
+																<!edit urls>
+																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="signIn.php" class="s-header-v2__nav-link">Sign In</a></li>
+																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="signUp.php" class="s-header-v2__nav-link">Sign Up</a></li>
+																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="showtimes.php" class="s-header-v2__nav-link">Showtimes</a></li>
+																<!-- End Home -->
+																</ul>
+												</div>
+												<!-- End Nav Menu -->
+										</div>
+								</div>
+								<!-- End Navbar Row -->
+						</div>
+				</nav>
+				<!-- End Navbar -->
+		</header>
+		<div style="padding-top: 1rem;"class="s-promo-v1">
+		<h3 style="font-family: Montserrat, sans-serif;">Filter by complex:</h3>
 		<div class="selectComplex">
-			<a href="showtimes.php">No filter</a><br>
+			<a href="showtimes.php"style="font-family: Montserrat, sans-serif;">No filter</a><br>
 <?PHP
 	foreach($complexes as $complex) {
 ?>
@@ -39,7 +78,7 @@
 ?>
 		</div>
 		<br>
-		<h3>View movie showtimes:</h3>
+		<h3 style="font-family: Montserrat, sans-serif;">View movie showtimes:</h3>
 		<div class="selectMovie">
 <?PHP
 	foreach($movies as $movie) {
@@ -57,5 +96,22 @@
 	}
 ?>
 		</div>
+		</div>
+		<footer class="g-bg-color--dark">
+				<!-- Links -->
+				<div class="g-hor-divider__dashed--white-opacity-lightest">
+						<div class="container g-padding-y-80--xs">
+								<div class="row">
+										<div class="col-sm-4 g-margin-b-20--xs g-margin-b-0--md">
+												<ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
+														<li><a class="g-font-size-15--xs g-color--white-opacity"><u>Contact Us</u></a></li>
+														<li><a class="g-font-size-15--xs g-color--white-opacity">support@royaltheatres.com</a></li>
+														<li><a class="g-font-size-15--xs g-color--white-opacity">+1 800-100-0101</a></li>
+												</ul>
+										</div>
+								</div>
+						</div>
+				</div>
+		</footer>
 	</body>
 </html>
