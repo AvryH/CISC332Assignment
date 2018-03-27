@@ -19,7 +19,7 @@
 			$hash = $user["password"];
 			$acctNumber = $user["acctNum"];
 
-			if($hash !== false) {
+			if($hash !== null) {
 				if(password_verify($_POST["password"], $user["password"])) {
 					// The password was correct
 					$_SESSION["acctNumber"] = $acctNumber;
