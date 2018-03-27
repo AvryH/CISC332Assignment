@@ -115,10 +115,12 @@
 ?>
 		<form method="POST">
 			<input name="action" type="hidden" value="login"></input>
-			<input name="email" type="text" placeholder="email"></input>
-			<input name="password" type="password" placeholder="password"></input>
+			<h1>Email:</h1>
+			<input name="email" type="text" placeholder="email" autofocus="autofocus"></input><br>
+			<h1>Password:</h1>
+			<input name="password" type="password" placeholder="password"></input><br><br>
 			<input type="submit" value="Login"></input>
-		</form>
+		</form><br>
 		<a href="signUp.php">Sign Up</a>
 <?PHP
 	}

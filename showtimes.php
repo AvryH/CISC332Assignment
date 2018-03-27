@@ -13,7 +13,7 @@
 		$movies = $query->fetchAll(PDO::FETCH_ASSOC);
 	}
 
-	$query = $db->prepare("SELECT name FROM `complex`");
+	$query = $db->prepare("SELECT name, street FROM `complex`");
 	$query->execute();
 	$complexes = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -27,16 +27,19 @@
 	<body>
 		<h3>Filter by complex:</h3>
 		<div class="selectComplex">
-			<a href="showtimes.php">No filter</a><br>
+	<table class="complexTable">
+	<tr><th>Complex</th><th>Address</th></tr>
 <?PHP
-	foreach($complexes as $complex) {
-?>
-			<a href="showtimes.php?complex=<?PHP echo(htmlspecialchars(urlencode($complex["name"]))); ?>">
-				<?PHP echo(htmlspecialchars($complex["name"])); ?>
-			</a><br>
+		foreach($complexes as $complex) {
+?>			
+				<tr><td>
+				<a href="showtimes.php?complex=<?PHP echo(htmlspecialchars(urlencode($complex["name"]))); ?>">
+					<?PHP echo(htmlspecialchars($complex["name"]) . ' </a> </td> <td>' . htmlspecialchars($complex["street"]) . '</td>'); ?>
+				</tr>
 <?PHP
 	}
 ?>
+	</table>
 		</div>
 		<br>
 		<h3>View movie showtimes:</h3>
