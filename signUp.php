@@ -70,7 +70,7 @@
 			<p>Credit Card Number:<p>
 			<input name="CCNum" type="text" placeholder="CCNum"></input><br>
 			<p>Credit Card Expiry Date:<p>
-			<input name="CCExp" type="month" placeholder="CCExp"></input><br>
+			<input name="CCExp" type="text" placeholder="mmyy"></input><br>
 			<p>Password:<p>
 			<input name="password" id="password" type="password" placeholder="password" required onkeyup='arePWtheSame();'></input><br>
 			<p>Confirm Password:<p>
