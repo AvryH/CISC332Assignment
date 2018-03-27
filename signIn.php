@@ -89,15 +89,22 @@
 
 		<form method="POST">
 			<input name="action" type="hidden" value="updateUser"></input>
-			<input name="fName" type="text" placeholder="fName" value="<?PHP echo(htmlspecialchars($user["fName"])); ?>"></input><br>
-			<input name="lName" type="text" placeholder="lName" value="<?PHP echo(htmlspecialchars($user["lName"])); ?>"></input><br>
-			<input name="phoneNum" type="text" placeholder="phoneNum" value="<?PHP echo(htmlspecialchars($user["phoneNum"])); ?>"></input><br>
-			<input name="street" type="text" placeholder="street" value="<?PHP echo(htmlspecialchars($user["street"])); ?>"></input><br>
-			<input name="city" type="text" placeholder="city" value="<?PHP echo(htmlspecialchars($user["city"])); ?>"></input><br>
-			<input name="pc" type="text" placeholder="pc" value="<?PHP echo(htmlspecialchars($user["pc"])); ?>"></input><br>
-			<input name="email" type="text" placeholder="email" value="<?PHP echo(htmlspecialchars($user["email"])); ?>"></input><br>
+			<p>Name:<p>
+			<input name="fName" type="text" placeholder="First Name" value="<?PHP echo(htmlspecialchars($user["fName"])); ?>"></input><br>
+			<input name="lName" type="text" placeholder="Last Name" value="<?PHP echo(htmlspecialchars($user["lName"])); ?>"></input><br>
+			<p>Phone Number:<p>
+			<input name="phoneNum" type="tel" placeholder="Phone Number" value="<?PHP echo(htmlspecialchars($user["phoneNum"])); ?>"></input><br>
+			<p>Address:<p>
+			<input name="street" type="text" placeholder="Street" value="<?PHP echo(htmlspecialchars($user["street"])); ?>"></input><br>
+			<input name="city" type="text" placeholder="City" value="<?PHP echo(htmlspecialchars($user["city"])); ?>"></input><br>
+			<input name="pc" type="text" placeholder="Postal Code" value="<?PHP echo(htmlspecialchars($user["pc"])); ?>"></input><br>
+			<p>Email:<p>
+			<input name="email" type="Email" placeholder="Email" value="<?PHP echo(htmlspecialchars($user["email"])); ?>"></input><br>
+			<p>Credit Card Number:<p>
 			<input name="CCNum" type="text" placeholder="CCNum" value="<?PHP echo(htmlspecialchars($user["CCNum"])); ?>"></input><br>
-			<input name="CCExp" type="text" placeholder="CCExp" value="<?PHP echo(htmlspecialchars($user["CCExp"])); ?>"></input><br>
+			<p>Credit Card Expiry Date:<p>
+			<input name="CCExp" type="text" placeholder="mmyy" value="<?PHP echo(htmlspecialchars($user["CCExp"])); ?>"></input><br>
+			<p>Password:<p>
 			<input name="password" type="password" placeholder="(password unchanged)"></input>
 			<input type="submit" value="Update"></input><br>
 		</form>
@@ -109,7 +116,6 @@
 		<form method="POST">
 			<input name="action" type="hidden" value="login"></input>
 			<input name="email" type="text" placeholder="email"></input>
-			<input name="password" type="password" placeholder="password"></input>
 			<input name="password" type="password" placeholder="password"></input>
 			<input type="submit" value="Login"></input>
 		</form>

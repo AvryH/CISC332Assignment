@@ -38,11 +38,12 @@
 			header("Location: index.php");
 		} else {
 			// Display some error
-			echo("Error creating account");
-			print_r($db->errorInfo());
-			exit(1);
+			echo('<span style="color:red;">Error creating account:</span><br>'); 
+			echo('That email is in use by another account.<br>Please use a different one.');
+			//print_r($db->errorInfo());
+			//exit(1);
 		}
-	} else {
+	} 
 		// Show the normal page
 ?>
 <html>
@@ -51,8 +52,13 @@
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" href="styling.css"/>
 		<script src="javaScript.js"></script>
+		
+		<!-- Theme Styles -->
+		<link href="styling.css" rel="stylesheet" type="text/css"/>
+		<link href="css/global/global.css" rel="stylesheet" type="text/css"/>
 	</head>
 	<body>
+	
 		<h1>Sign Up:</h1>
 
 		<form method="POST">
@@ -70,7 +76,7 @@
 			<p>Credit Card Number:<p>
 			<input name="CCNum" type="text" placeholder="CCNum"></input><br>
 			<p>Credit Card Expiry Date:<p>
-			<input name="CCExp" type="month" placeholder="CCExp"></input><br>
+			<input name="CCExp" type="text" placeholder="mmyy"></input><br>
 			<p>Password:<p>
 			<input name="password" id="password" type="password" placeholder="password" required onkeyup='arePWtheSame();'></input><br>
 			<p>Confirm Password:<p>
@@ -80,6 +86,4 @@
 		</form>
 	</body>
 </html>
-<?PHP
-	}
-?>
+
