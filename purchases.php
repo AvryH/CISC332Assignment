@@ -78,15 +78,15 @@
 		<div style="padding-left:1rem; padding-top:1rem; padding-bottom: 1rem;">
 		<a style="font-family: Montserrat, sans-serif;" href=".">Back to main site</a><br/><br/>
 		<table>
-			<tr><th>Movie</th><th>Theater</th><th>Time</th><th>Number of Seats</th><th>Action</th></tr>
+			<tr><th>Movie</th><th>Theater</th><th>Address</th><th>Time</th><th>Number of Seats</th><th>Action</th></tr>
 <?PHP
 	// Load purchases from the database
-	$query = $db->prepare("SELECT showingID, numTicketsReserved, movieTitle, complexName, theaterNum, startTime FROM `reservation` NATURAL JOIN `showing` WHERE accountNum=? ORDER BY startTime");
+	$query = $db->prepare("SELECT showingID, numTicketsReserved, movieTitle, complexName, theaterNum, startTime, street FROM `reservation` NATURAL JOIN `showing` JOIN `complex` ON complexName=complex.name WHERE accountNum=? ORDER BY startTime");
 	$query->execute([$_SESSION["acctNumber"]]);
 	$purchases = $query->fetchAll(PDO::FETCH_ASSOC);
 
 	foreach($purchases as $purchase) {
-		echo('<tr><td>' . htmlspecialchars($purchase["movieTitle"]) . '</td><td>' . htmlspecialchars($purchase["complexName"]) . ' #' . htmlspecialchars($purchase["theaterNum"]) . '</td><td>' . htmlspecialchars($purchase["startTime"]) . '</td><td>' . htmlspecialchars($purchase["numTicketsReserved"]) . '</td><td><form method="POST"><input type="hidden" name="action" value="cancelPurchase"></input><input type="hidden" name="showingID" value="' . htmlspecialchars($purchase["showingID"]) . '"></input><input type="submit" value="Cancel"></form></td></tr>');
+		echo('<tr><td>' . htmlspecialchars($purchase["movieTitle"]) . '</td><td>' . htmlspecialchars($purchase["complexName"]) . ' #' . htmlspecialchars($purchase["theaterNum"]) . '</td><td>' . htmlspecialchars($purchase["street"]) . '</td><td>' . htmlspecialchars($purchase["startTime"]) . '</td><td>' . htmlspecialchars($purchase["numTicketsReserved"]) . '</td><td><form method="POST"><input type="hidden" name="action" value="cancelPurchase"></input><input type="hidden" name="showingID" value="' . htmlspecialchars($purchase["showingID"]) . '"></input><input type="submit" value="Cancel"></form></td></tr>');
 	}
 ?>
 		</table>
