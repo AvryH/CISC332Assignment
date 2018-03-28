@@ -88,14 +88,18 @@
 	for($i=0; $i<count($movies); ) {
 		$title = $movies[$i]["title"];
 ?>
-			<a href="movie.php?title=<?PHP echo(htmlspecialchars(urlencode($title))); ?>">
-				<div class="movieThumbnail">
-					<img src="<?PHP echo(htmlspecialchars($movies[$i]["thumbnail"])); ?>"></img>
+			<div class="movieEntry">
+				<div class="promoMovieTitle">
+					<a href="movie.php?title=<?PHP echo(htmlspecialchars(urlencode($title))); ?>">
+						<?PHP echo(htmlspecialchars($title)); ?>
+					</a>
 				</div>
-				<div class="movieTitle">
-					<?PHP echo(htmlspecialchars($title)); ?>
+				<div class="promoMovieThumbnail">
+					<a href="movie.php?title=<?PHP echo(htmlspecialchars(urlencode($title))); ?>">
+						<img src="<?PHP echo(htmlspecialchars($movies[$i]["thumbnail"])); ?>"></img>
+					</a>
 				</div>
-				<div class="movieShowings">
+				<div class="promoMovieShowings">
 <?PHP
 		do {
 			echo('<a href="showing.php?id=' . htmlspecialchars(urlencode($movies[$i]["showingID"])) . '">' . htmlspecialchars($movies[$i]["startTime"]) . '</a><br/>');
@@ -104,7 +108,6 @@
 ?>
 				</div>
 			</a>
-			<br>
 <?PHP
 	}
 ?>

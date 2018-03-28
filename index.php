@@ -2,19 +2,9 @@
 	// Connect to the server
 	require_once(__DIR__ . "/connect.php");
 
-	if(isset($_GET["complex"])) {
-		$query = $db->prepare("SELECT title, thumbnail FROM `movie` JOIN `showing` ON movieTitle=title WHERE complexName=?");
-		$query->execute([$_GET["complex"]]);
-		$movies = $query->fetchAll(PDO::FETCH_ASSOC);
-	} else {
-		$query = $db->prepare("SELECT title, thumbnail FROM `movie`");
-		$query->execute();
-		$movies = $query->fetchAll(PDO::FETCH_ASSOC);
-	}
-
-	$query = $db->prepare("SELECT name FROM `complex`");
+	$query = $db->prepare("SELECT title, thumbnail FROM `movie`");
 	$query->execute();
-	$complexes = $query->fetchAll(PDO::FETCH_ASSOC);
+	$movies = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 
@@ -68,7 +58,7 @@
 			<?PHP
 			foreach($movies as $movie) {
 			?>
-				<a href="movie.php?title=<?PHP echo(htmlspecialchars(urlencode($movie["title"]))); ?>">
+				<a class="movieEntry" href="movie.php?title=<?PHP echo(htmlspecialchars(urlencode($movie["title"]))); ?>">
 					<div class="promoMovieTitle">
 						<?PHP echo(htmlspecialchars($movie["title"])); ?>
 					</div>
@@ -76,7 +66,6 @@
 						<img src="<?PHP echo(htmlspecialchars($movie["thumbnail"])); ?>"></img>
 					</div>
 				</a>
-				<br>
 			<?PHP
 			}
 			?>

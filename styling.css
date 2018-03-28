@@ -73,11 +73,11 @@ body {
 	border-bottom: 1px solid grey;
 }
 
-.movieThumbnail > img, .movieImage > img {
+.movieThumbnail img, .movieImage img {
 	width: 5em;
 }
 
-.promoMovieThumbnail > img, .movieImage > img {
+.promoMovieThumbnail img, .movieImage img {
 	width: 10em;
 }
 .movieInfo {
