@@ -101,10 +101,12 @@
 				</div>
 				<div class="promoMovieShowings">
 <?PHP
-		do {
-			echo('<a href="showing.php?id=' . htmlspecialchars(urlencode($movies[$i]["showingID"])) . '">' . htmlspecialchars($movies[$i]["startTime"]) . '</a><br/>');
+		while(isset($movies[$i]) && $movies[$i]["title"] === $title) {
+			if(isset($movies[$i]["showingID"])) {
+				echo('<a href="showing.php?id=' . htmlspecialchars(urlencode($movies[$i]["showingID"])) . '">' . htmlspecialchars($movies[$i]["startTime"]) . '</a><br/>');
+			}
 			$i++;
-		} while(isset($movies[$i]) && $movies[$i]["title"] === $title);
+		}
 ?>
 				</div>
 			</a>
