@@ -24,7 +24,7 @@
 	}
 
 	// Load the showing
-	$query = $db->prepare("SELECT complexName, theaterNum, startTime FROM `showing` WHERE showingID=?");
+	$query = $db->prepare("SELECT complexName, theaterNum, startTime, movieTitle FROM `showing` WHERE showingID=?");
 	$query->execute([$_REQUEST["id"]]);
 	$showing = $query->fetch(PDO::FETCH_ASSOC);
 ?>
@@ -34,6 +34,17 @@
 		<link rel="stylesheet" href="styling.css"/>
 	</head>
 	<body>
+		<h3>Buying tickets for:</h3>
+		<div class="showingMovie"><?PHP
+			echo(htmlspecialchars($showing["movieTitle"]));
+		?></div>
+		<div class="showingMovie"><?PHP
+			echo(htmlspecialchars($showing["complexName"]) . ' #' . htmlspecialchars($showing["theaterNum"]));
+		?></div>
+		<div class="showingStartTime"><?PHP
+			echo("Starting at: " . htmlspecialchars($showing["startTime"]));
+		?></div>
+		<br>
 		<form method="POST">
 			<input name="action" type="hidden" value="buyTicket"></input>
 			<input name="id" type="hidden" value="<?PHP echo(htmlspecialchars($_REQUEST["id"])); ?>"></input>

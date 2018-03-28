@@ -4,7 +4,7 @@
 
 	// Load all movies from the database
 	if(isset($_GET["complex"])) {
-		$query = $db->prepare("SELECT title, thumbnail FROM `movie` JOIN `showing` ON movieTitle=title WHERE complexName=?");
+		$query = $db->prepare("SELECT title, thumbnail, showingID, startTime FROM `movie` JOIN `showing` ON movieTitle=title WHERE complexName=? ORDER BY title");
 		$query->execute([$_GET["complex"]]);
 		$movies = $query->fetchAll(PDO::FETCH_ASSOC);
 	} else {
@@ -85,14 +85,23 @@
 		<h3 style="font-family: Montserrat, sans-serif;">View movie showtimes:</h3>
 		<div class="selectMovie">
 <?PHP
-	foreach($movies as $movie) {
+	for($i=0; $i<count($movies); ) {
+		$title = $movies[$i]["title"];
 ?>
-			<a href="movie.php?title=<?PHP echo(htmlspecialchars(urlencode($movie["title"]))); ?>">
+			<a href="movie.php?title=<?PHP echo(htmlspecialchars(urlencode($title))); ?>">
 				<div class="movieThumbnail">
-					<img src="<?PHP echo(htmlspecialchars($movie["thumbnail"])); ?>"></img>
+					<img src="<?PHP echo(htmlspecialchars($movies[$i]["thumbnail"])); ?>"></img>
 				</div>
 				<div class="movieTitle">
-					<?PHP echo(htmlspecialchars($movie["title"])); ?>
+					<?PHP echo(htmlspecialchars($title)); ?>
+				</div>
+				<div class="movieShowings">
+<?PHP
+		do {
+			echo('<a href="showing.php?id=' . htmlspecialchars(urlencode($movies[$i]["showingID"])) . '">' . htmlspecialchars($movies[$i]["startTime"]) . '</a><br/>');
+			$i++;
+		} while(isset($movies[$i]) && $movies[$i]["title"] === $title);
+?>
 				</div>
 			</a>
 			<br>
