@@ -117,7 +117,7 @@
 			<p>Password:<p>
 			<input name="password" id="password" type="password" placeholder="password" required onkeyup='arePWtheSame();'></input><br>
 			<p>Confirm Password:<p>
-			<input name="confirm_password" id="confirm_password" type="password" placeholder="confirm_password" required onkeyup='arePWtheSame();'></input>
+			<input name="confirm_password" id="confirm_password" type="password" placeholder="confirm_password" required onkeyup='arePWtheSame();'></input><br>
 			<span id='areMatching'></span><br><br>
 			<input id="submit" type="submit" value="Sign Up"></input><br>
 		</form>
