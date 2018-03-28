@@ -32,6 +32,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="style.css"/>
+		<link rel="shortcut icon" href="/royalTheaters.ico" type=”image/x-icon” />
 	</head>
 	<body>
 		<a href="showings.php">Back to theater list</a><br/><br/>

@@ -63,6 +63,7 @@
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" href="styling.css"/>
 		<link href="css/global/global.css" rel="stylesheet" type="text/css"/>
+		<link rel="shortcut icon" href="/royalTheaters.ico" type=”image/x-icon” />
 	</head>
 	<body>
 		<header style="background:grey;">
