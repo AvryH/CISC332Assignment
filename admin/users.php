@@ -15,6 +15,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
 <html>
 	<head>
 		<link rel="stylesheet" href="style.css"/>
+		<link rel="shortcut icon" href="/royalTheaters.ico" type=”image/x-icon” />
 	</head>
 	<body>
 		<a href=".">Back to admin panel</a><br/><br/>

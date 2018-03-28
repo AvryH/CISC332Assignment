@@ -7,6 +7,7 @@ require_once(__dir__ . "/ensure_admin.php");
 <html>
 	<head>
 		<link rel="stylesheet" href="style.css"/>
+		<link rel="shortcut icon" href="/royalTheaters.ico" type=”image/x-icon” />
 	</head>
 	<body>
 		<a href="..">Back to main site</a><br/><br/>

@@ -13,6 +13,7 @@
 
 		<link href="styling.css" rel="stylesheet" type="text/css"/>
 		<link href="css/global/global.css" rel="stylesheet" type="text/css"/>
+		<link rel="shortcut icon" href="/royalTheaters.ico" type=”image/x-icon” />
 		</head>
 
 	<body>

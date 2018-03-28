@@ -9,6 +9,7 @@ require_once(__DIR__ . "/form.php");
 <html>
 	<head>
 		<link rel="stylesheet" href="style.css"/>
+		<link rel="shortcut icon" href="/royalTheaters.ico" type=”image/x-icon” />
 	</head>
 	<body>
 		<a href=".">Back to admin panel</a>
