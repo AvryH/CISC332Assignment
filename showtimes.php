@@ -50,8 +50,18 @@
 														<ul class="s-header-v2__nav s-header-v2__nav_icons">
 																<!-- Home -->
 																<!edit urls>
+<?PHP
+	if(!isset($_SESSION["acctNumber"])) {
+?>
 																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="signIn.php" class="s-header-v2__nav-link">Sign In</a></li>
 																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="signUp.php" class="s-header-v2__nav-link">Sign Up</a></li>
+<?PHP
+	} else {
+?>
+																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="signIn.php" class="s-header-v2__nav-link">Account</a></li>
+<?PHP
+	}
+?>
 																<li style="padding-top: 150px;" class="s-header-v2__nav-item"><a href="showtimes.php" class="s-header-v2__nav-link">Showtimes</a></li>
 																<!-- End Home -->
 																</ul>
