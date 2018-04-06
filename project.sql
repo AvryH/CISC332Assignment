@@ -309,9 +309,7 @@ ALTER TABLE `complex`
 --
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`acctNum`),
-  ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `email_2` (`email`),
-  ADD UNIQUE KEY `email_3` (`email`);
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indexes for table `mainactors`

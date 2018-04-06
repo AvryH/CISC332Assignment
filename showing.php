@@ -10,25 +10,37 @@
 
 	if($_SERVER["REQUEST_METHOD"] === "POST") {
 		if($_POST["action"] === "buyTicket") {
-			$query = $db->prepare("SELECT CCNum, CCExp FROM `customer` WHERE acctNum=?");
-			$query->execute([$_SESSION["acctNumber"]]);
-			$ccinfo = $query->fetch(PDO::FETCH_ASSOC);
+			if(isset($_SESSION["acctNumber"])) {
+				$query = $db->prepare("SELECT CCNum, CCExp FROM `customer` WHERE acctNum=?");
+				$query->execute([$_SESSION["acctNumber"]]);
+				$ccinfo = $query->fetch(PDO::FETCH_ASSOC);
 
-			if($ccinfo["CCNum"] !== null && $ccinfo["CCExp"] !== null) {
-				// Check if there are enough seats left. If there are enough, buy the tickets
-				$query = $db->prepare("INSERT INTO `reservation`(accountNum, showingID, numTicketsReserved) SELECT :accountNum, :showingID, :numTicketsReserved WHERE (SELECT maxNumOfSeat FROM `showing` NATURAL JOIN `theater` WHERE showingID=:showingID) - (SELECT COALESCE(SUM(numTicketsReserved), 0) FROM `reservation` WHERE showingID=:showingID) >= :numTicketsReserved");
-				$query->bindValue(":accountNum", $_SESSION["acctNumber"]);
-				$query->bindValue(":showingID", $_POST["id"]);
-				$query->bindValue(":numTicketsReserved", $_POST["numTicketsReserved"]);
-				if(!$query->execute()) {
-					echo("You already have tickets for this showing. Please cancel them before adding more.");
-				} else if($query->rowCount() < 1) {
-					echo("The theater doesn't have enough seats remaining.");
+				if($ccinfo["CCNum"] !== null && $ccinfo["CCExp"] !== null) {
+					// Check if there are enough seats left. If there are enough, buy the tickets
+					$query = $db->prepare("
+						START TRANSACTION;
+							LOCK TABLES `reservation` WRITE, `showing` READ, `theater` READ;
+								SET @ticketsCurrentlyReserved = (SELECT COALESCE(SUM(numTicketsReserved), 0) FROM `reservation` WHERE showingID=:showingID);
+								SET @totalNumberOfSeats = (SELECT maxNumOfSeat FROM `showing` NATURAL JOIN `theater` WHERE showingID=:showingID);
+								INSERT INTO `reservation`(accountNum, showingID, numTicketsReserved) SELECT :accountNum, :showingID, :numTicketsRequested WHERE @totalNumberOfSeats - @ticketsCurrentlyReserved >= :numTicketsRequested;
+							UNLOCK TABLES;
+						COMMIT;
+					");
+					$query->bindValue(":accountNum", $_SESSION["acctNumber"]);
+					$query->bindValue(":showingID", $_POST["id"]);
+					$query->bindValue(":numTicketsRequested", $_POST["numTicketsReserved"]);
+					if(!$query->execute()) {
+						echo("You already have tickets for this showing. Please cancel them before adding more.");
+					} else if($query->rowCount() < 1) {
+						echo("The theater doesn't have enough seats remaining.");
+					} else {
+						header("Location: purchases.php");
+					}
 				} else {
-					header("Location: purchases.php");
+					echo("There is no credit card registered with your account");
 				}
 			} else {
-				echo("There is no credit card registered with your account");
+				echo("You must be logged in to buy tickets.");
 			}
 		}
 	}
